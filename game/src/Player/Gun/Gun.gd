@@ -1,0 +1,47 @@
+extends Node2D
+
+signal shoot
+signal ammo_changed
+
+var aim_direction
+var can_shoot = true
+
+onready var active_gun: Node2D = $GunTemplate
+
+#export (int) var gun_shots = 1
+#export (float, 0, 1.5) var gun_spread = 0.2
+
+func _ready():
+	emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
+	$GunTimer.wait_time = active_gun.gun_cooldown
+	print("Ammo:", active_gun.current_ammo)
+
+func _input(event):
+	if event.is_action_pressed("gun"):
+		if active_gun.current_ammo != 0 and can_shoot:
+			active_gun.current_ammo -= 1
+			$GunTimer.start()
+			can_shoot = false
+			emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
+			match Settings.controls:
+				Settings.GAMEPAD:
+					aim_direction = Utils.get_aim_joystick_direction()
+				Settings.KBD_MOUSE, _:
+					aim_direction = (get_global_mouse_position() - global_position).normalized()
+			active_gun._fire(aim_direction)
+	elif event.is_action_pressed("ui_right"):
+		emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
+		active_gun.current_ammo = active_gun.max_ammo
+		print("Ammo:", active_gun.current_ammo)
+
+
+func set_ammo(value):
+	if value > active_gun.max_ammo:
+		value = active_gun.max_ammo
+	active_gun.current_ammo = value
+	emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
+	print("Ammo:", active_gun.current_ammo)
+
+func _on_GunTimer_timeout():
+	#add functions named _function must be added on the node tab
+	can_shoot = true
