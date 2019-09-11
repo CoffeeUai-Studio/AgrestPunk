@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GARRA_PRENDENDO_METAL_1.wav-de0668dd498df269a612cce54a8de243.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/player/hook/GARRA_PRENDENDO_METAL_1.wav"
+dest_files=[ "res://.import/GARRA_PRENDENDO_METAL_1.wav-de0668dd498df269a612cce54a8de243.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

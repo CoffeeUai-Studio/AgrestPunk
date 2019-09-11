@@ -58,6 +58,8 @@ func take_damage(amount):
 		emit_signal("shake")
 		effect_animation.play("Damage")
 		effect_animation.queue("InvulnerabilityFlash")
+		$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/DANO_1.wav")
+		$PlayerStream.play()
 
 func dies():
 	queue_free()
@@ -80,7 +82,14 @@ func _input(event):
 		emit_signal("shake")
 	elif event.is_action_pressed("melee"):
 		effect_animation.play("MeleeTemp")
-
+		$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/PEIXEIRA_1.wav")
+		$PlayerStream.play()
 
 func _on_InvulnerabilityTimer_timeout():
 	effect_animation.play("Rest")
+
+
+
+func _on_Air_jumped():
+	$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/PULO_1.wav")
+	$PlayerStream.play()

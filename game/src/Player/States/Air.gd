@@ -28,7 +28,7 @@ func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		if _parent.velocity.y >= 0.0 and jump_delay.time_left > 0.0:
 			_parent.velocity = calculate_jump_velocity(_parent.jump_impulse)
-		emit_signal("jumped")
+			emit_signal("jumped")
 	else:
 		_parent.unhandled_input(event)
 
@@ -64,6 +64,7 @@ func enter(msg: Dictionary = {}) -> void:
 		_parent.max_speed.x = max(abs(msg.velocity.x), _parent.max_speed.x)
 	if "impulse" in msg:
 		_parent.velocity += calculate_jump_velocity(msg.impulse)
+		emit_signal("jumped")
 	if "wall_jump" in msg:
 		controls_freeze.start()
 		_parent.acceleration = Vector2(acceleration_x, _parent.acceleration_default.y)

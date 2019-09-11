@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var motion
+var collision_info
 var direction = Vector2()
 export var speed = 1000
 export (int) var damage
@@ -13,8 +15,8 @@ func _ready():
 
 
 func _physics_process(delta):
-	var motion = direction * speed * delta
-	var collision_info = move_and_collide(motion)
+	motion = direction * speed * delta
+	collision_info = move_and_collide(motion)
 	if collision_info:
 		queue_free()
 

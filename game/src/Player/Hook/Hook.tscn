@@ -17,9 +17,6 @@ collision_mask = 6
 
 [node name="Arrow" parent="." instance=ExtResource( 2 )]
 
-[node name="Tail" parent="Arrow" index="0"]
-texture_mode = -1459980320
-
 [node name="Head" parent="Arrow" index="1"]
 editor/display_folded = true
 
@@ -41,6 +38,11 @@ script = ExtResource( 6 )
 
 [node name="Fire" type="Node" parent="StateMachine/Aim"]
 script = ExtResource( 7 )
+
+[node name="HookStream" type="AudioStreamPlayer" parent="."]
+
+[node name="ChainStream" type="AudioStreamPlayer" parent="."]
+[connection signal="hooked_onto_target" from="." to="." method="_on_Hook_hooked_onto_target"]
 
 [editable path="Arrow"]
 

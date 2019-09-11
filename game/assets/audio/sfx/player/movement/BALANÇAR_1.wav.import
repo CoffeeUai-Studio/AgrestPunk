@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BALANÇAR_1.wav-47be5c06e79d45810551849abd9aa950.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/player/movement/BALANÇAR_1.wav"
+dest_files=[ "res://.import/BALANÇAR_1.wav-47be5c06e79d45810551849abd9aa950.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

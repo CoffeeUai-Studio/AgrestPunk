@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Hook/Hook.tscn" type="PackedScene" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://src/Player/Camera/PlayerCamera.gd" type="Script" id=21]
 [ext_resource path="res://src/Gamefeel/Screenshake.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/Player/Gun/Gun.tscn" type="PackedScene" id=23]
+[ext_resource path="res://src/Player/Gadgets/Gadget_A.gd" type="Script" id=24]
+[ext_resource path="res://src/Player/Gadgets/Bombs/GranadeController.tscn" type="PackedScene" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
@@ -150,10 +152,9 @@ script = ExtResource( 10 )
 
 [node name="Air" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 11 )
-acceleration_x = 5000.0
 
 [node name="JumpDelay" type="Timer" parent="StateMachine/Move/Air"]
-wait_time = 0.1
+wait_time = 10.0
 one_shot = true
 
 [node name="ControlsFreeze" type="Timer" parent="StateMachine/Move/Air"]
@@ -223,5 +224,22 @@ anims/Damage = SubResource( 3 )
 anims/InvulnerabilityFlash = SubResource( 4 )
 anims/MeleeTemp = SubResource( 5 )
 anims/Rest = SubResource( 6 )
+
+[node name="Gadget_A" type="Node2D" parent="."]
+position = Vector2( 0, -30.1883 )
+script = ExtResource( 24 )
+
+[node name="GranadeController" parent="Gadget_A" instance=ExtResource( 25 )]
+
+[node name="GadgetTimer_A" type="Timer" parent="Gadget_A"]
+
+[node name="Gadget_B" type="Node2D" parent="."]
+position = Vector2( 0, -30.1883 )
+
+[node name="PlayerStream" type="AudioStreamPlayer" parent="."]
+[connection signal="jumped" from="StateMachine/Move/Air" to="." method="_on_Air_jumped"]
 [connection signal="land" from="StateMachine/Move/Air" to="Camera2D" method="_on_land"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
+[connection signal="timeout" from="Gadget_A/GadgetTimer_A" to="Gadget_A" method="_on_GadgetTimer_A_timeout"]
+
+[editable path="Gadget_A/GranadeController"]

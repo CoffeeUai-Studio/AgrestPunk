@@ -1,5 +1,8 @@
 extends Node2D
 
+const fire_sfx = ['TIRO_1', 'TIRO_2', 'TIRO_3']
+const reload_sfx = ['RECARREGAR_ARMA_1', 'RECARREGAR_ARMA_2', 'RECARREGAR_ARMA_3']
+
 var bullet = preload("Bullet.tscn")
 
 export (int) var max_ammo = 20

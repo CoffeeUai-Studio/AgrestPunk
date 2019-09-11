@@ -50,3 +50,10 @@ func set_is_aiming(value: bool) -> void:
 func set_is_active(value: bool) -> void:
 	is_active = value
 	set_process_unhandled_input(value)
+
+
+func _on_Hook_hooked_onto_target(target_global_position):
+	$HookStream.stream = load("res://assets/audio/sfx/player/hook/GARRA_PRENDENDO_METAL_1.wav")
+	$HookStream.play()
+	$ChainStream.stream = load("res://assets/audio/sfx/player/hook/HOOK_PUXANDO_1.wav")
+	$ChainStream.play()

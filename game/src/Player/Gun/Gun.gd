@@ -22,6 +22,9 @@ func _input(event):
 			active_gun.current_ammo -= 1
 			$GunTimer.start()
 			can_shoot = false
+			#RandomizeSound.choose_random_sound(active_gun.fire_sfx)
+			$GunStream.stream = load("res://assets/audio/sfx/player/gun/TIRO_1.wav")
+			$GunStream.play()
 			emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
 			match Settings.controls:
 				Settings.GAMEPAD:
@@ -30,18 +33,21 @@ func _input(event):
 					aim_direction = (get_global_mouse_position() - global_position).normalized()
 			active_gun._fire(aim_direction)
 	elif event.is_action_pressed("ui_right"):
-		emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
 		active_gun.current_ammo = active_gun.max_ammo
-		print("Ammo:", active_gun.current_ammo)
+		emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
+		$GunStream.stream = load("res://assets/audio/sfx/player/gun/RECARREGAR_ARMA_1.wav")
+		$GunStream.play()
 
 
 func set_ammo(value):
 	if value > active_gun.max_ammo:
 		value = active_gun.max_ammo
+	if value > 0:
+		$GunStream.stream = load("res://assets/audio/sfx/player/gun/RECARREGAR_ARMA_1.wav")
+		$GunStream.play()
 	active_gun.current_ammo = value
 	emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
 	print("Ammo:", active_gun.current_ammo)
 
 func _on_GunTimer_timeout():
-	#add functions named _function must be added on the node tab
 	can_shoot = true
