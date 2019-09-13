@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Garra_Jump_CorpoNormalMap.png-730f22842c0b50f4bd385ca819528ec4.stex"
+path="res://.import/Garra_Idle_BracoNormalMap.png-c9d7f0d5e295698616c00108a69dfd10.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/GarraDaMorte/Garra_Jump_CorpoNormalMap.png"
-dest_files=[ "res://.import/Garra_Jump_CorpoNormalMap.png-730f22842c0b50f4bd385ca819528ec4.stex" ]
+source_file="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_BracoNormalMap.png"
+dest_files=[ "res://.import/Garra_Idle_BracoNormalMap.png-c9d7f0d5e295698616c00108a69dfd10.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -1,9 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Player/Skin.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/shadow.png" type="Texture" id=2]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/shadow.png" type="Texture" id=2]
 [ext_resource path="res://src/Player/Skin/Shadow.gd" type="Script" id=3]
 [ext_resource path="res://src/Player/FloorDetector.tscn" type="PackedScene" id=4]
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "REST_POSE"

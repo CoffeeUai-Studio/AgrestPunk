@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/NewCapture.png-ebde654f99565132ddc3f5b9b809da51.stex"
+path="res://.import/Garra_Idle_Braco.png-290443ae3f5cfc73e795640c1560853c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/GarraDaMorte/NewCapture.png"
-dest_files=[ "res://.import/NewCapture.png-ebde654f99565132ddc3f5b9b809da51.stex" ]
+source_file="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_Braco.png"
+dest_files=[ "res://.import/Garra_Idle_Braco.png-290443ae3f5cfc73e795640c1560853c.stex" ]
 
 [params]
 

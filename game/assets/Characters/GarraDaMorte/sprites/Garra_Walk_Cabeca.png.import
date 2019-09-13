@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Garra_Idle_Cabeca.png-e4dfed0771cd985d0b219fe21a63b81c.stex"
+path="res://.import/Garra_Walk_Cabeca.png-bfa64b222ba7a83d97626cf378d3c70a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/GarraDaMorte/Garra_Idle_Cabeca.png"
-dest_files=[ "res://.import/Garra_Idle_Cabeca.png-e4dfed0771cd985d0b219fe21a63b81c.stex" ]
+source_file="res://assets/Characters/GarraDaMorte/sprites/Garra_Walk_Cabeca.png"
+dest_files=[ "res://.import/Garra_Walk_Cabeca.png-bfa64b222ba7a83d97626cf378d3c70a.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

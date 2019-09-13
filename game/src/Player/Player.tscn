@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Hook/Hook.tscn" type="PackedScene" id=2]
@@ -25,6 +25,9 @@
 [ext_resource path="res://src/Player/Gun/Gun.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/Player/Gadgets/Gadget_A.gd" type="Script" id=24]
 [ext_resource path="res://src/Player/Gadgets/Bombs/GranadeController.tscn" type="PackedScene" id=25]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Braco.tscn" type="PackedScene" id=26]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Cabeca.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
@@ -117,6 +120,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -30 )
 
 [node name="LedgeWallDetector" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 is_active = true
 
 [node name="Melee" type="CollisionShape2D" parent="LedgeWallDetector"]
@@ -237,6 +241,28 @@ script = ExtResource( 24 )
 position = Vector2( 0, -30.1883 )
 
 [node name="PlayerStream" type="AudioStreamPlayer" parent="."]
+
+[node name="Sprite_Player" type="Node2D" parent="."]
+position = Vector2( 0, -45 )
+scale = Vector2( -0.9, 0.9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Garra_Braco" parent="Sprite_Player" instance=ExtResource( 26 )]
+editor/display_folded = true
+position = Vector2( 0, 0 )
+frame = 0
+
+[node name="Garra_Cabeca" parent="Sprite_Player" instance=ExtResource( 27 )]
+editor/display_folded = true
+position = Vector2( 0, 0 )
+frame = 0
+
+[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 28 )]
+editor/display_folded = true
+position = Vector2( 0, 0 )
+frame = 0
 [connection signal="jumped" from="StateMachine/Move/Air" to="." method="_on_Air_jumped"]
 [connection signal="land" from="StateMachine/Move/Air" to="Camera2D" method="_on_land"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]

@@ -1,33 +1,34 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/UI/Menu/Title.gd" type="Script" id=1]
 [ext_resource path="res://assets/placeholders/Logo.png" type="Texture" id=2]
 [ext_resource path="res://src/UI/Menu/Buttons/PlayButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Menu/Buttons/OptionsButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/Menu/Buttons/QuitButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Walk.png" type="Texture" id=6]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_WalkNormalMap.png" type="Texture" id=7]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Jump_Corpo.png" type="Texture" id=8]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Jump_CorpoNormalMap.png" type="Texture" id=9]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Walk_Corpo.png" type="Texture" id=10]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Walk_CorpoNormalMap.png" type="Texture" id=11]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Jump_Braco.png" type="Texture" id=12]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Jump_BracoNormalMap.png" type="Texture" id=13]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Walk_Braco.png" type="Texture" id=14]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Walk_BracoNormalMap.png" type="Texture" id=15]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Jump_Cabeca.png" type="Texture" id=16]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Jump_CabecaNormalMap.png" type="Texture" id=17]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Walk_CabecaNormalMap.png" type="Texture" id=18]
-[ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Walk_Cabeca.png" type="Texture" id=19]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Walk.png" type="Texture" id=6]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_WalkNormalMap.png" type="Texture" id=7]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Walk_Corpo.png" type="Texture" id=8]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Walk_CorpoNormalMap.png" type="Texture" id=9]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_Corpo.png" type="Texture" id=10]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_CorpoNormalMap.png" type="Texture" id=11]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_Braco.png" type="Texture" id=12]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_BracoNormalMap.png" type="Texture" id=13]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Walk_Braco.png" type="Texture" id=14]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Walk_BracoNormalMap.png" type="Texture" id=15]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_Cabeca.png" type="Texture" id=17]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_CabecaNormalMap.png" type="Texture" id=18]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Walk_CabecaNormalMap.png" type="Texture" id=19]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Walk_Cabeca.png" type="Texture" id=20]
 
-[sub_resource type="Gradient" id=10]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.252727, 0.998221 )
 colors = PoolColorArray( 0.501974, 0.511719, 0.19989, 1, 0.380859, 0.573502, 0.625, 1 )
 
-[sub_resource type="GradientTexture" id=11]
-gradient = SubResource( 10 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Shader" id=12]
+[sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
 
 // Gonkee's fog shader for Godot 3 - full tutorial https://youtu.be/QEaTsz_0o44
@@ -77,18 +78,17 @@ void fragment() {
 	COLOR = vec4(color, final * 0.5);
 }"
 
-[sub_resource type="ShaderMaterial" id=13]
-shader = SubResource( 12 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 shader_param/color = Vector3( 0.43, 0.36, 0.03 )
 shader_param/OCTAVES = 4
 
-[sub_resource type="Gradient" id=14]
+[sub_resource type="Gradient" id=5]
 
-[sub_resource type="GradientTexture" id=15]
-gradient = SubResource( 14 )
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Walk"
+[sub_resource type="Animation" id=7]
 length = 0.94
 loop = true
 step = 0.01
@@ -105,14 +105,13 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 7, 9, 11, 13, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59 ]
 }
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=8]
 colors = PoolColorArray( 0.482572, 0.566406, 0.137177, 1, 0.619016, 0.679688, 0.369049, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "Garra_Jump_Corpo"
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -123,7 +122,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 10 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:normal_map")
@@ -135,7 +134,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 9 ) ]
+"values": [ ExtResource( 11 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:vframes")
@@ -174,7 +173,7 @@ tracks/4/keys = {
 "values": [ 0, 29 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=11]
 loop = true
 step = 0.01
 tracks/0/type = "value"
@@ -199,7 +198,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 10 ) ]
+"values": [ ExtResource( 8 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -211,7 +210,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 11 ) ]
+"values": [ ExtResource( 9 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -238,8 +237,7 @@ tracks/4/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Garra_Jump_Braco"
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -301,7 +299,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 12 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=13]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -364,8 +362,7 @@ tracks/4/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Garra_Jump_Cabeca"
+[sub_resource type="Animation" id=14]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -412,7 +409,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 16 ) ]
+"values": [ ExtResource( 17 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath(".:normal_map")
@@ -424,10 +421,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 17 ) ]
+"values": [ ExtResource( 18 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=15]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -475,7 +472,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 18 ) ]
+"values": [ ExtResource( 19 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath(".:texture")
@@ -487,7 +484,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 19 ) ]
+"values": [ ExtResource( 20 ) ]
 }
 
 [node name="Title" type="Control"]
@@ -547,53 +544,56 @@ position = Vector2( -26.4425, 420.898 )
 rotation = -1.57079
 scale = Vector2( 0.221741, 682.07 )
 z_index = -5
-texture = SubResource( 11 )
+texture = SubResource( 2 )
 centered = false
 
 [node name="Sprite2" type="Sprite" parent="."]
-material = SubResource( 13 )
+material = SubResource( 4 )
 position = Vector2( -46.9053, 440.042 )
 rotation = -1.57079
 scale = Vector2( 0.239014, 730.753 )
 z_index = -4
-texture = SubResource( 15 )
+texture = SubResource( 6 )
 centered = false
 
 [node name="Garra_Walk" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 722.671, 298.21 )
 texture = ExtResource( 6 )
 normal_map = ExtResource( 7 )
 vframes = 8
 hframes = 8
-frame = 59
+frame = 31
 region_filter_clip = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Garra_Walk"]
 autoplay = "Walk"
-anims/Walk = SubResource( 1 )
+anims/Walk = SubResource( 7 )
 
 [node name="Light2D" type="Light2D" parent="Garra_Walk"]
 position = Vector2( -324.596, 214.361 )
 scale = Vector2( 1, 155.149 )
-texture = SubResource( 3 )
+texture = SubResource( 9 )
 offset = Vector2( 0.13, 0.17 )
 color = Color( 0.498039, 0.576471, 0.203922, 1 )
 energy = 5.06
 
 [node name="Garra_Walk_Corpo" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 512.09, 438.037 )
 texture = ExtResource( 8 )
 normal_map = ExtResource( 9 )
-vframes = 6
-hframes = 6
-frame = 29
+vframes = 8
+hframes = 8
+frame = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Garra_Walk_Corpo"]
 autoplay = "Garra_Walk_Corpo"
-anims/Garra_Jump_Corpo = SubResource( 4 )
-anims/Garra_Walk_Corpo = SubResource( 5 )
+anims/Garra_Jump_Corpo = SubResource( 10 )
+anims/Garra_Walk_Corpo = SubResource( 11 )
 
 [node name="Garra_Walk_Braco" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 390.56, 442.723 )
 texture = ExtResource( 12 )
 normal_map = ExtResource( 13 )
@@ -603,21 +603,24 @@ frame = 29
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Garra_Walk_Braco"]
 autoplay = "Garra_Walk_Braco"
-anims/Garra_Jump_Braco = SubResource( 6 )
-anims/Garra_Walk_Braco = SubResource( 7 )
+anims/Garra_Jump_Braco = SubResource( 12 )
+anims/Garra_Walk_Braco = SubResource( 13 )
+
+[node name="Garra_Corpo" parent="Garra_Walk_Braco" instance=ExtResource( 16 )]
 
 [node name="Garra_Walk_Cabeca" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 649.067, 450.448 )
-texture = ExtResource( 16 )
-normal_map = ExtResource( 17 )
+texture = ExtResource( 17 )
+normal_map = ExtResource( 18 )
 vframes = 6
 hframes = 6
 frame = 29
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Garra_Walk_Cabeca"]
 autoplay = "Garra_Walk_Cabeca"
-anims/Garra_Jump_Cabeca = SubResource( 8 )
-anims/Garra_Walk_Cabeca = SubResource( 9 )
+anims/Garra_Jump_Cabeca = SubResource( 14 )
+anims/Garra_Walk_Cabeca = SubResource( 15 )
 [connection signal="pressed" from="Menu/CenterRow/Buttons/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]

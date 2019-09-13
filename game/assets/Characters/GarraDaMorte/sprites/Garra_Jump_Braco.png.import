@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shadow.png-f52a4b21cba909a05ee6d0dae1153e13.stex"
+path="res://.import/Garra_Jump_Braco.png-998f3b5fc12de6a482d616709faa5621.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/shadow.png"
-dest_files=[ "res://.import/shadow.png-f52a4b21cba909a05ee6d0dae1153e13.stex" ]
+source_file="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_Braco.png"
+dest_files=[ "res://.import/Garra_Jump_Braco.png-998f3b5fc12de6a482d616709faa5621.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
