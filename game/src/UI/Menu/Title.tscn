@@ -167,7 +167,7 @@ texture = ExtResource( 8 )
 normal_map = ExtResource( 9 )
 vframes = 8
 hframes = 8
-frame = 59
+frame = 50
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Garra_Walk_Corpo"]
 autoplay = "Garra_Walk_Corpo"
