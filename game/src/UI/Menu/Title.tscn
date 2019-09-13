@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/UI/Menu/Title.gd" type="Script" id=1]
 [ext_resource path="res://assets/placeholders/Logo.png" type="Texture" id=2]
@@ -19,6 +19,73 @@
 [ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Jump_CabecaNormalMap.png" type="Texture" id=17]
 [ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Walk_CabecaNormalMap.png" type="Texture" id=18]
 [ext_resource path="res://assets/Characters/GarraDaMorte/Garra_Walk_Cabeca.png" type="Texture" id=19]
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0.252727, 0.998221 )
+colors = PoolColorArray( 0.501974, 0.511719, 0.19989, 1, 0.380859, 0.573502, 0.625, 1 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="Shader" id=12]
+code = "shader_type canvas_item;
+
+// Gonkee's fog shader for Godot 3 - full tutorial https://youtu.be/QEaTsz_0o44
+// If you use this shader, I would prefer it if you gave credit to me and my channel
+
+uniform vec3 color = vec3(0.43, 0.36, 0.03);
+uniform int OCTAVES = 4;
+
+float rand(vec2 coord){
+	return fract(sin(dot(coord, vec2(56, 78)) * 1000.0) * 1000.0);
+}
+
+float noise(vec2 coord){
+	vec2 i = floor(coord);
+	vec2 f = fract(coord);
+
+	// 4 corners of a rectangle surrounding our point
+	float a = rand(i);
+	float b = rand(i + vec2(1.0, 0.0));
+	float c = rand(i + vec2(0.0, 1.0));
+	float d = rand(i + vec2(1.0, 1.0));
+
+	vec2 cubic = f * f * (3.0 - 2.0 * f);
+
+	return mix(a, b, cubic.x) + (c - a) * cubic.y * (1.0 - cubic.x) + (d - b) * cubic.x * cubic.y;
+}
+
+float fbm(vec2 coord){
+	float value = 0.0;
+	float scale = 0.5;
+
+	for(int i = 0; i < OCTAVES; i++){
+		value += noise(coord) * scale;
+		coord *= 2.0;
+		scale *= 0.5;
+	}
+	return value;
+}
+
+void fragment() {
+	vec2 coord = UV * 20.0;
+
+	vec2 motion = vec2( fbm(coord + vec2(TIME * -0.5, TIME * 0.5)) );
+
+	float final = fbm(coord + motion);
+
+	COLOR = vec4(color, final * 0.5);
+}"
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = SubResource( 12 )
+shader_param/color = Vector3( 0.43, 0.36, 0.03 )
+shader_param/OCTAVES = 4
+
+[sub_resource type="Gradient" id=14]
+
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "Walk"
@@ -475,6 +542,23 @@ margin_top = 60.0
 margin_right = 220.0
 margin_bottom = 80.0
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -26.4425, 420.898 )
+rotation = -1.57079
+scale = Vector2( 0.221741, 682.07 )
+z_index = -5
+texture = SubResource( 11 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="."]
+material = SubResource( 13 )
+position = Vector2( -46.9053, 440.042 )
+rotation = -1.57079
+scale = Vector2( 0.239014, 730.753 )
+z_index = -4
+texture = SubResource( 15 )
+centered = false
+
 [node name="Garra_Walk" type="Sprite" parent="."]
 position = Vector2( 722.671, 298.21 )
 texture = ExtResource( 6 )
@@ -489,8 +573,7 @@ autoplay = "Walk"
 anims/Walk = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="Garra_Walk"]
-visible = false
-position = Vector2( -240.994, -69.8784 )
+position = Vector2( -324.596, 214.361 )
 scale = Vector2( 1, 155.149 )
 texture = SubResource( 3 )
 offset = Vector2( 0.13, 0.17 )
@@ -503,7 +586,7 @@ texture = ExtResource( 8 )
 normal_map = ExtResource( 9 )
 vframes = 6
 hframes = 6
-frame = 23
+frame = 29
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Garra_Walk_Corpo"]
 autoplay = "Garra_Walk_Corpo"
