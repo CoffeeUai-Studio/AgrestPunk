@@ -23,6 +23,7 @@ onready var ledge_wall_detector: Position2D = $LedgeWallDetector
 onready var floor_detector: RayCast2D = $FloorDetector
 onready var invulnerability_timer: Timer = $InvulnerabilityTimer
 onready var effect_animation: AnimationPlayer = $EffectAnimation
+onready var player_stream: AudioStreamPlayer = $PlayerStream
 
 onready var pass_through: Area2D = $PassThrough
 
@@ -89,7 +90,11 @@ func _on_InvulnerabilityTimer_timeout():
 	effect_animation.play("Rest")
 
 
-
 func _on_Air_jumped():
 	$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/PULO_1.wav")
+	$PlayerStream.play()
+
+
+func _on_step():
+	$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/CORRER_1.wav")
 	$PlayerStream.play()

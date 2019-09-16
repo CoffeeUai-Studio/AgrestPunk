@@ -20,8 +20,12 @@ func _ready():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_left"):
 		scale.x = -1
+		#is_active = true
 	elif event.is_action_pressed("move_right"):
 		scale.x = 1
+		#is_active = true
+	#else:
+		#is_active = false
 
 
 func is_against_ledge() -> bool:

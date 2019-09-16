@@ -19,7 +19,7 @@ func _launch(target_position):
 	velocity = velocity.clamped(1000)
 
 func _physics_process(delta):
-	velocity.y *= 10 * delta
+	#velocity.y *= 10 * delta
 	collision_info = move_and_collide(velocity * delta)
 	if collision_info != null:
 		_on_impact(collision_info.normal)

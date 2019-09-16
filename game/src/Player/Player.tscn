@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Hook/Hook.tscn" type="PackedScene" id=2]
@@ -25,12 +25,15 @@
 [ext_resource path="res://src/Player/Gun/Gun.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/Player/Gadgets/Gadget_A.gd" type="Script" id=24]
 [ext_resource path="res://src/Player/Gadgets/Bombs/GranadeController.tscn" type="PackedScene" id=25]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Braco.tscn" type="PackedScene" id=26]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Cabeca.tscn" type="PackedScene" id=27]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=28]
+[ext_resource path="res://src/Player/Sprite_Player.gd" type="Script" id=26]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Braco.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Cabeca.tscn" type="PackedScene" id=28]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=29]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_Corpo.png" type="Texture" id=30]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_CorpoNormalMap.png" type="Texture" id=31]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30, 30 )
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, -30, 15, -25, 15, 30, -15, 30, -15, -25 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 64.0
@@ -121,7 +124,6 @@ position = Vector2( 0, -30 )
 
 [node name="LedgeWallDetector" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
-is_active = true
 
 [node name="Melee" type="CollisionShape2D" parent="LedgeWallDetector"]
 visible = false
@@ -155,6 +157,7 @@ one_shot = true
 script = ExtResource( 10 )
 
 [node name="Air" type="Node" parent="StateMachine/Move"]
+editor/display_folded = true
 script = ExtResource( 11 )
 
 [node name="JumpDelay" type="Timer" parent="StateMachine/Move/Air"]
@@ -244,28 +247,40 @@ position = Vector2( 0, -30.1883 )
 
 [node name="Sprite_Player" type="Node2D" parent="."]
 position = Vector2( 0, -45 )
-scale = Vector2( -0.9, 0.9 )
+scale = Vector2( 0.9, 0.9 )
+script = ExtResource( 26 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Garra_Braco" parent="Sprite_Player" instance=ExtResource( 26 )]
+[node name="Garra_Braco" parent="Sprite_Player" instance=ExtResource( 27 )]
 editor/display_folded = true
-position = Vector2( 0, 0 )
-frame = 0
+flip_h = true
 
-[node name="Garra_Cabeca" parent="Sprite_Player" instance=ExtResource( 27 )]
+[node name="Garra_Cabeca" parent="Sprite_Player" instance=ExtResource( 28 )]
 editor/display_folded = true
-position = Vector2( 0, 0 )
-frame = 0
+z_index = 1
+flip_h = true
 
-[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 28 )]
+[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 29 )]
 editor/display_folded = true
-position = Vector2( 0, 0 )
-frame = 0
+z_index = 2
+texture = ExtResource( 30 )
+normal_map = ExtResource( 31 )
+flip_h = true
+vframes = 6
+hframes = 6
+frame = 2
 [connection signal="jumped" from="StateMachine/Move/Air" to="." method="_on_Air_jumped"]
 [connection signal="land" from="StateMachine/Move/Air" to="Camera2D" method="_on_land"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
 [connection signal="timeout" from="Gadget_A/GadgetTimer_A" to="Gadget_A" method="_on_GadgetTimer_A_timeout"]
+[connection signal="step" from="Sprite_Player/Garra_Corpo" to="." method="_on_step"]
 
 [editable path="Gadget_A/GranadeController"]
+
+[editable path="Sprite_Player/Garra_Braco"]
+
+[editable path="Sprite_Player/Garra_Cabeca"]
+
+[editable path="Sprite_Player/Garra_Corpo"]

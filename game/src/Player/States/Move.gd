@@ -49,6 +49,7 @@ func physics_process(delta: float) -> void:
 	velocity = calculate_velocity(velocity, max_speed, acceleration, delta, get_move_direction())
 	velocity = owner.move_and_slide(velocity, owner.FLOOR_NORMAL)
 	Events.emit_signal("player_moved", owner)
+	velocity.x = clamp(velocity.x, -max_speed.x, max_speed.x)
 
 
 func enter(msg: Dictionary = {}) -> void:
