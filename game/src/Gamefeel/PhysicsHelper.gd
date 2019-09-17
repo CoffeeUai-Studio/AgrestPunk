@@ -11,5 +11,5 @@ static func calculate_arc_velocity(point_a, point_b, arc_height, gravity = 400):
 		
 		velocity.y = -sqrt(-2 * gravity * arc_height)
 		velocity.x = displacement.x / float(time_up + time_down)
-		
+		#curva de bezier
 	return velocity

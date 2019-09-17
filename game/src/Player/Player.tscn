@@ -28,9 +28,9 @@
 [ext_resource path="res://src/Player/Sprite_Player.gd" type="Script" id=26]
 [ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Braco.tscn" type="PackedScene" id=27]
 [ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Cabeca.tscn" type="PackedScene" id=28]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=29]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_Corpo.png" type="Texture" id=30]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_CorpoNormalMap.png" type="Texture" id=31]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_Cabeca.png" type="Texture" id=29]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_CabecaNormalMap.png" type="Texture" id=30]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=31]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, -30, 15, -25, 15, 30, -15, 30, -15, -25 )
@@ -40,25 +40,26 @@ radius = 64.0
 height = 0.000137329
 
 [sub_resource type="Animation" id=3]
-length = 0.2
+length = 0.1
+step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D:modulate")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=4]
 length = 0.2
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D:visible")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -87,7 +88,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D:modulate")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -99,7 +100,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CollisionShape2D:visible")
+tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -124,6 +125,7 @@ position = Vector2( 0, -30 )
 
 [node name="LedgeWallDetector" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
+is_active = true
 
 [node name="Melee" type="CollisionShape2D" parent="LedgeWallDetector"]
 visible = false
@@ -159,6 +161,7 @@ script = ExtResource( 10 )
 [node name="Air" type="Node" parent="StateMachine/Move"]
 editor/display_folded = true
 script = ExtResource( 11 )
+acceleration_x = 5000.0
 
 [node name="JumpDelay" type="Timer" parent="StateMachine/Move/Air"]
 wait_time = 10.0
@@ -226,12 +229,6 @@ position = Vector2( 0, -30 )
 wait_time = 0.8
 one_shot = true
 
-[node name="EffectAnimation" type="AnimationPlayer" parent="."]
-anims/Damage = SubResource( 3 )
-anims/InvulnerabilityFlash = SubResource( 4 )
-anims/MeleeTemp = SubResource( 5 )
-anims/Rest = SubResource( 6 )
-
 [node name="Gadget_A" type="Node2D" parent="."]
 position = Vector2( 0, -30.1883 )
 script = ExtResource( 24 )
@@ -253,24 +250,27 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="EffectAnimation" type="AnimationPlayer" parent="Sprite_Player"]
+anims/Damage = SubResource( 3 )
+anims/InvulnerabilityFlash = SubResource( 4 )
+anims/MeleeTemp = SubResource( 5 )
+anims/Rest = SubResource( 6 )
+
 [node name="Garra_Braco" parent="Sprite_Player" instance=ExtResource( 27 )]
-editor/display_folded = true
 flip_h = true
 
 [node name="Garra_Cabeca" parent="Sprite_Player" instance=ExtResource( 28 )]
-editor/display_folded = true
 z_index = 1
-flip_h = true
-
-[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 29 )]
-editor/display_folded = true
-z_index = 2
-texture = ExtResource( 30 )
-normal_map = ExtResource( 31 )
+texture = ExtResource( 29 )
+normal_map = ExtResource( 30 )
 flip_h = true
 vframes = 6
 hframes = 6
-frame = 2
+
+[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 31 )]
+z_index = 2
+flip_h = true
+[connection signal="shake" from="." to="Camera2D/Screenshake" method="_start"]
 [connection signal="jumped" from="StateMachine/Move/Air" to="." method="_on_Air_jumped"]
 [connection signal="land" from="StateMachine/Move/Air" to="Camera2D" method="_on_land"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]

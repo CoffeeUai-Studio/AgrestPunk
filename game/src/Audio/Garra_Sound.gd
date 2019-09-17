@@ -11,3 +11,4 @@ func _ready():
 
 func _step():
 	emit_signal("step") #add ground type variable
+	

@@ -6,7 +6,7 @@ signal ammo_changed
 var aim_direction
 var can_shoot = true
 
-onready var active_gun: Node2D = $GunTemplate
+onready var active_gun: Node2D = $Shotgun
 
 #export (int) var gun_shots = 1
 #export (float, 0, 1.5) var gun_spread = 0.2
@@ -22,8 +22,8 @@ func _input(event):
 			active_gun.current_ammo -= 1
 			$GunTimer.start()
 			can_shoot = false
-			#RandomizeSound.choose_random_sound(active_gun.fire_sfx)
-			$GunStream.stream = load("res://assets/audio/sfx/player/gun/TIRO_1.wav")
+			var rSound = RandomizeSound.choose_random_sound(active_gun.fire_sfx)
+			$GunStream.stream = load("res://assets/audio/sfx/player/gun/" + rSound  +".wav")
 			$GunStream.play()
 			emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
 			match Settings.controls:

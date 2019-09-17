@@ -12,7 +12,7 @@ dest_files=[ "res://.import/HOOK_PUXANDO_1.wav-4cdb935f25e80612271273e6f19475a6.
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=true

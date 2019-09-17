@@ -17,4 +17,5 @@ script = ExtResource( 2 )
 
 [node name="Shotgun" type="Node2D" parent="."]
 script = ExtResource( 3 )
+nshots = 6
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]

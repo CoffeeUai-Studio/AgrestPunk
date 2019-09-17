@@ -22,10 +22,14 @@ onready var shaking_camera: Camera2D = $CameraRig/ShakingCamera
 onready var ledge_wall_detector: Position2D = $LedgeWallDetector
 onready var floor_detector: RayCast2D = $FloorDetector
 onready var invulnerability_timer: Timer = $InvulnerabilityTimer
-onready var effect_animation: AnimationPlayer = $EffectAnimation
 onready var player_stream: AudioStreamPlayer = $PlayerStream
 
 onready var pass_through: Area2D = $PassThrough
+
+onready var cabeca_sprite = get_node("Sprite_Player/Garra_Cabeca/AnimationPlayer")
+onready var braco_sprite = get_node("Sprite_Player/Garra_Braco/AnimationPlayer")
+onready var torso_sprite = get_node("Sprite_Player/Garra_Corpo/AnimationPlayer")
+onready var effect_animation = get_node("Sprite_Player/EffectAnimation")
 
 export (int) var max_health = 100
 onready var health = max_health setget set_health
@@ -93,6 +97,9 @@ func _on_InvulnerabilityTimer_timeout():
 func _on_Air_jumped():
 	$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/PULO_1.wav")
 	$PlayerStream.play()
+	cabeca_sprite.play("Garra_Jump_Cabeca")
+	braco_sprite.play("Garra_Jump_Braco")
+	torso_sprite.play("Garra_Jump_Corpo")
 
 
 func _on_step():

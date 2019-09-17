@@ -304,7 +304,9 @@ gadget_b={
 
 [layer_names]
 
+2d_render/layer_1="Player"
 2d_physics/layer_1="Player"
+2d_render/layer_2="World"
 2d_physics/layer_2="World"
 2d_physics/layer_3="Hookable"
 2d_physics/layer_4="PassThrough"
