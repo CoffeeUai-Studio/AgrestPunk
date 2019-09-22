@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Garra_Jump_Cabeca.png-e6a4c74789886218d52515ec1ba4e508.stex"
+path="res://.import/Garra_Corpo_Melee.png-1b0364774ad59e6fdfe88c82e1bd9f78.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/GarraDaMorte/Garra_Jump_Cabeca.png"
-dest_files=[ "res://.import/Garra_Jump_Cabeca.png-e6a4c74789886218d52515ec1ba4e508.stex" ]
+source_file="res://assets/Characters/GarraDaMorte/sprites/Garra_Corpo_Melee.png"
+dest_files=[ "res://.import/Garra_Corpo_Melee.png-1b0364774ad59e6fdfe88c82e1bd9f78.stex" ]
 
 [params]
 

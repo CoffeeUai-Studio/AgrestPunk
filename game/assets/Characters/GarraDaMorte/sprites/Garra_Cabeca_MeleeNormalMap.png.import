@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Garra_Idle_CorpoNormalMap.png-02640f9880c5e54aa23e875b2bbbde0f.stex"
+path="res://.import/Garra_Cabeca_MeleeNormalMap.png-d2b1829dd7af48e7e5e496f3fe2334f8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/GarraDaMorte/animations/Garra_Idle_CorpoNormalMap.png"
-dest_files=[ "res://.import/Garra_Idle_CorpoNormalMap.png-02640f9880c5e54aa23e875b2bbbde0f.stex" ]
+source_file="res://assets/Characters/GarraDaMorte/sprites/Garra_Cabeca_MeleeNormalMap.png"
+dest_files=[ "res://.import/Garra_Cabeca_MeleeNormalMap.png-d2b1829dd7af48e7e5e496f3fe2334f8.stex" ]
 
 [params]
 

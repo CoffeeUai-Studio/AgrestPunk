@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/NewCapture.png-73d93fbe1e30da5e1349916a9eb976eb.stex"
+path="res://.import/Garra_Cabeca_Melee.png-67e4b098b8a726f5a635f397bcfefe56.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/GarraDaMorte/sprites/NewCapture.png"
-dest_files=[ "res://.import/NewCapture.png-73d93fbe1e30da5e1349916a9eb976eb.stex" ]
+source_file="res://assets/Characters/GarraDaMorte/sprites/Garra_Cabeca_Melee.png"
+dest_files=[ "res://.import/Garra_Cabeca_Melee.png-67e4b098b8a726f5a635f397bcfefe56.stex" ]
 
 [params]
 
