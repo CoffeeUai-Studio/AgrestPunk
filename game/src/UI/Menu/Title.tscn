@@ -135,7 +135,7 @@ centered = false
 
 [node name="Sprite2" type="Sprite" parent="."]
 material = SubResource( 4 )
-position = Vector2( -46.9053, 440.042 )
+position = Vector2( -51.548, 440.042 )
 rotation = -1.57079
 scale = Vector2( 0.239014, 730.753 )
 z_index = -4
