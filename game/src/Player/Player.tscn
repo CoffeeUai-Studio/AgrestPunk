@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Hook/Hook.tscn" type="PackedScene" id=2]
@@ -30,8 +30,8 @@
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Braco_Melee.png" type="Texture" id=28]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Braco_MeleeNormalMap.png" type="Texture" id=29]
 [ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Cabeca.tscn" type="PackedScene" id=30]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_Cabeca.png" type="Texture" id=31]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_CabecaNormalMap.png" type="Texture" id=32]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Cabeca_Melee.png" type="Texture" id=31]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Cabeca_MeleeNormalMap.png" type="Texture" id=32]
 [ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=33]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Corpo_Melee.png" type="Texture" id=34]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Corpo_MeleeNormalMap.png" type="Texture" id=35]
@@ -118,6 +118,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "Garra_Melee_Braco"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -152,7 +153,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 6 ]
+"values": [ 7 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:hframes")
@@ -180,7 +181,70 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-resource_name = "Garra_Melee_Corpo"
+resource_name = "Garra_Melee_Cabeca"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 31 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:normal_map")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 32 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 38 ]
+}
+
+[sub_resource type="Animation" id=9]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
@@ -216,7 +280,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 6 ]
+"values": [ 7 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:hframes")
@@ -391,7 +455,9 @@ anims/Rest = SubResource( 6 )
 texture = ExtResource( 28 )
 normal_map = ExtResource( 29 )
 flip_h = true
+vframes = 7
 hframes = 7
+frame = 2
 
 [node name="AnimationPlayer" parent="Sprite_Player/Garra_Braco" index="0"]
 anims/Garra_Melee_Braco = SubResource( 7 )
@@ -401,20 +467,24 @@ z_index = 1
 texture = ExtResource( 31 )
 normal_map = ExtResource( 32 )
 flip_h = true
-vframes = 6
+vframes = 7
 hframes = 7
+frame = 1
+
+[node name="AnimationPlayer" parent="Sprite_Player/Garra_Cabeca" index="0"]
+anims/Garra_Melee_Cabeca = SubResource( 8 )
 
 [node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 33 )]
 z_index = 2
 texture = ExtResource( 34 )
 normal_map = ExtResource( 35 )
 flip_h = true
-vframes = 6
+vframes = 7
 hframes = 7
-frame = 17
+frame = 34
 
 [node name="AnimationPlayer" parent="Sprite_Player/Garra_Corpo" index="0"]
-anims/Garra_Melee_Corpo = SubResource( 8 )
+anims/Garra_Melee_Corpo = SubResource( 9 )
 [connection signal="shake" from="." to="Camera2D/Screenshake" method="_start"]
 [connection signal="jumped" from="StateMachine/Move/Air" to="." method="_on_Air_jumped"]
 [connection signal="land" from="StateMachine/Move/Air" to="Camera2D" method="_on_land"]

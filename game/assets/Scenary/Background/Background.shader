@@ -1,12 +1,10 @@
 shader_type canvas_item;
+render_mode unshaded;
 
-uniform vec4 Inicialcolor = vec4(0.0, 1.0, 0.0,1.0);
-uniform vec4 Finalcolor = vec4(1.0, 0.0, 0.0,1.0);
+uniform sampler2D gradient : hint_black;
 
 void fragment () {
-	vec4 gradientColor = step( vec4 Inicialcolor, vec4 Finalcolorm, st.y);
-	COLOR = gradientColor;
-	
+	vec3 colorGradient = texture(gradient, vec2(gr
+	COLOR.rgb = gradient;
 }
-
 
