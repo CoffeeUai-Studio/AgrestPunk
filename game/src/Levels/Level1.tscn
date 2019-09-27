@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Objects/HookTarget.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Objects/Checkpoint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tilesets/placeholder.tres" type="TileSet" id=3]
 [ext_resource path="res://assets/Scenary/Background/Background.shader" type="Shader" id=4]
 [ext_resource path="res://assets/Scenary/Background/Apresentação+de+Slides.jpg" type="Texture" id=5]
+[ext_resource path="res://assets/placeholders/Assets_Cenario.png" type="Texture" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
@@ -65,8 +66,12 @@ tile_data = PoolIntArray( -2, 0, 0, -1, 0, 1, -65536, 0, 1, -65535, 0, 1, -65534
 
 [node name="Apresentação+de+Slides" type="Sprite" parent="."]
 material = SubResource( 1 )
-position = Vector2( 1126.42, 685.239 )
+position = Vector2( 1122.42, 685.239 )
 rotation = -3.14159
 scale = Vector2( 1.88434, 1.5695 )
 z_index = -1
 texture = ExtResource( 5 )
+
+[node name="Assets_Cenario" type="Sprite" parent="."]
+position = Vector2( 2957.12, 741.717 )
+texture = ExtResource( 6 )

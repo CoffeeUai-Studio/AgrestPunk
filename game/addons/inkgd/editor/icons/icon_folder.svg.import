@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Garra_Walk_Corpo.png-d3b480895bfcf6c62947bf0c1727ee09.stex"
+path="res://.import/icon_folder.svg-7dcb6b8fb3ebe74c824bbedf29182e9a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Garra_Walk_Corpo.png"
-dest_files=[ "res://.import/Garra_Walk_Corpo.png-d3b480895bfcf6c62947bf0c1727ee09.stex" ]
+source_file="res://addons/inkgd/editor/icons/icon_folder.svg"
+dest_files=[ "res://.import/icon_folder.svg-7dcb6b8fb3ebe74c824bbedf29182e9a.stex" ]
 
 [params]
 

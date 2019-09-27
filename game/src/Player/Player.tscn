@@ -481,7 +481,7 @@ normal_map = ExtResource( 35 )
 flip_h = true
 vframes = 7
 hframes = 7
-frame = 34
+frame = 0
 
 [node name="AnimationPlayer" parent="Sprite_Player/Garra_Corpo" index="0"]
 anims/Garra_Melee_Corpo = SubResource( 9 )
