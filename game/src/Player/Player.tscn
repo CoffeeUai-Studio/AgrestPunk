@@ -1104,7 +1104,6 @@ disabled = true
 [node name="Skin" parent="." instance=ExtResource( 6 )]
 
 [node name="StateMachine" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 7 )
 initial_state = NodePath("Move/Idle")
 
@@ -1260,7 +1259,7 @@ normal_map = ExtResource( 45 )
 flip_h = true
 vframes = 5
 hframes = 5
-frame = 0
+frame = 14
 
 [node name="AnimationPlayer" parent="Sprite_Player/Garra_Corpo" index="0"]
 anims/Garra_GrabOnEdge_Corpo = SubResource( 14 )
@@ -1288,10 +1287,10 @@ anims/Garra_HookUpFront_Braco = SubResource( 21 )
 [connection signal="land" from="StateMachine/Move/Air" to="Camera2D" method="_on_land"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
 [connection signal="timeout" from="Gadget_A/GadgetTimer_A" to="Gadget_A" method="_on_GadgetTimer_A_timeout"]
-[connection signal="slow" from="Gadget_B" to="Gun" method="_on_Gadget_B_slow"]
 [connection signal="slow" from="Gadget_B" to="Camera2D/Slowdown" method="_start"]
-[connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gun" method="_on_GadgetTimer_B_timeout"]
+[connection signal="slow" from="Gadget_B" to="Gun" method="_on_Gadget_B_slow"]
 [connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gadget_B" method="_on_GadgetTimer_B_timeout"]
+[connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gun" method="_on_GadgetTimer_B_timeout"]
 [connection signal="step" from="Sprite_Player/Garra_Corpo" to="." method="_on_step"]
 
 [editable path="Gadget_A/GranadeController"]

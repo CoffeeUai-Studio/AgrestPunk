@@ -10,6 +10,7 @@ onready var floor_detector: FloorDetector = $FloorDetector
 onready var shadow: Sprite = $Shadow
 
 
+
 func _ready() -> void:
 	anim.connect("animation_finished", self, "_on_Anim_animation_finished")
 
