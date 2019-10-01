@@ -51,3 +51,12 @@ func set_ammo(value):
 
 func _on_GunTimer_timeout():
 	can_shoot = true
+
+"""
+func _on_Gadget_B_slow():
+	$GunTimer.wait_time = active_gun.gun_cooldown / 10
+
+
+func _on_GadgetTimer_B_timeout():
+	$GunTimer.wait_time = active_gun.gun_cooldown
+"""
