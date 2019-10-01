@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/UI/Menu/Title.gd" type="Script" id=1]
 [ext_resource path="res://assets/placeholders/Logo.png" type="Texture" id=2]
 [ext_resource path="res://src/UI/Menu/Buttons/PlayButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Menu/Buttons/OptionsButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/Menu/Buttons/QuitButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/audio/music/Trilha_Menu (1).wav" type="AudioStream" id=6]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.252727, 0.998221 )
@@ -141,6 +142,10 @@ scale = Vector2( 0.239014, 730.753 )
 z_index = -4
 texture = SubResource( 6 )
 centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
 [connection signal="pressed" from="Menu/CenterRow/Buttons/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]

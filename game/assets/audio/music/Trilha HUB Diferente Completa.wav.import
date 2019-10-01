@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Trilha HUB Diferente Completa.wav-14cf20e70184129a700af356503bae22.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/Trilha HUB Diferente Completa.wav"
+dest_files=[ "res://.import/Trilha HUB Diferente Completa.wav-14cf20e70184129a700af356503bae22.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0
