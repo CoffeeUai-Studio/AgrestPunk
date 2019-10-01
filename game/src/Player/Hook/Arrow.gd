@@ -10,6 +10,9 @@ onready var start_length: float = head.position.x
 var hook_position: = Vector2.ZERO setget set_hook_position
 var length: = 40.0 setget set_length
 
+func _ready():
+	visible = false
+
 func _on_Tween_tween_completed(object: Object, key: NodePath) -> void:
 	visible = false
 

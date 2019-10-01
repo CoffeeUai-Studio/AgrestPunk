@@ -89,8 +89,11 @@ func _input(event):
 		emit_signal("shake")
 	elif event.is_action_pressed("melee"):
 		effect_animation.play("MeleeTemp")
-		$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/PEIXEIRA_1.wav")
-		$PlayerStream.play()
+		#$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/PEIXEIRA_1.wav")
+		#$PlayerStream.play()
+		cabeca_sprite.play("Garra_Melee_Cabeca")
+		braco_sprite.play("Garra_Melee_Braco")
+		torso_sprite.play("Garra_Melee_Corpo")
 
 func _on_InvulnerabilityTimer_timeout():
 	effect_animation.play("Rest")
