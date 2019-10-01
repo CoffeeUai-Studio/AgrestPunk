@@ -4,6 +4,7 @@ class_name Player
 signal health_changed(health)
 signal max_health_changed(max_health)
 signal shake()
+signal slow()
 signal killed()
 
 onready var state_machine: StateMachine = $StateMachine
@@ -61,6 +62,7 @@ func take_damage(amount):
 		invulnerability_timer.start()
 		set_health(health - amount)
 		emit_signal("shake")
+		emit_signal("slow", .2, .9)
 		effect_animation.play("Damage")
 		effect_animation.queue("InvulnerabilityFlash")
 		$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/DANO_1.wav")

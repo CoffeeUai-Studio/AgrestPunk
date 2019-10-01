@@ -7,7 +7,7 @@ var time_start
 var duration_ms
 var start_value
 
-func _start(duration = 4, strength = 0.9):
+func _start(duration = 4, strength = 0.5):
 	time_start = OS.get_ticks_msec()
 	duration_ms = duration * 1000
 	start_value = 1 - strength
@@ -34,3 +34,6 @@ func circl_ease_in_out(t, b, c, d):
 	else:
 		t =- 1
 		return -c/2 * (t*(t-2) - 1) + b
+
+func _on_Gadget_B_slow():
+	pass # Replace with function body.
