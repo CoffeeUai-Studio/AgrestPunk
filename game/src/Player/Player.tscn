@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Hook/Hook.tscn" type="PackedScene" id=2]
@@ -141,7 +141,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-resource_name = "Garra_GrabOnEdge_Braco"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -267,7 +266,6 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-resource_name = "Garra_GrabOnEdge_Cabeca"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -578,8 +576,9 @@ tracks/4/keys = {
 "values": [ 0, 38 ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "Garra_GrabOnEdge_Corpo"
+[sub_resource type="ShaderMaterial" id=14]
+
+[sub_resource type="Animation" id=15]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -641,7 +640,7 @@ tracks/4/keys = {
 "values": [ 0, 14 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -703,7 +702,7 @@ tracks/4/keys = {
 "values": [ 0, 39 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -765,7 +764,7 @@ tracks/4/keys = {
 "values": [ 0, 38 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -827,7 +826,7 @@ tracks/4/keys = {
 "values": [ 0, 39 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
@@ -890,7 +889,7 @@ tracks/4/keys = {
 "values": [ 0, 38 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=20]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -952,7 +951,7 @@ tracks/4/keys = {
 "values": [ 0, 39 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=21]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -1014,7 +1013,7 @@ tracks/4/keys = {
 "values": [ 0, 38 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=22]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -1089,6 +1088,7 @@ position = Vector2( 0, -30 )
 
 [node name="LedgeWallDetector" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
+is_active = true
 
 [node name="Melee" type="CollisionShape2D" parent="LedgeWallDetector"]
 visible = false
@@ -1124,6 +1124,7 @@ script = ExtResource( 10 )
 [node name="Air" type="Node" parent="StateMachine/Move"]
 editor/display_folded = true
 script = ExtResource( 11 )
+acceleration_x = 5000.0
 
 [node name="JumpDelay" type="Timer" parent="StateMachine/Move/Air"]
 wait_time = 10.0
@@ -1212,7 +1213,7 @@ one_shot = true
 [node name="PlayerStream" type="AudioStreamPlayer" parent="."]
 
 [node name="Sprite_Player" type="Node2D" parent="."]
-position = Vector2( 0, -45 )
+position = Vector2( -0.0949593, -44.6353 )
 scale = Vector2( 0.9, 0.9 )
 script = ExtResource( 28 )
 __meta__ = {
@@ -1253,20 +1254,17 @@ anims/Garra_HookUpFront_Cabeca = SubResource( 12 )
 anims/Garra_Melee_Cabeca = SubResource( 13 )
 
 [node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 43 )]
+material = SubResource( 14 )
 z_index = 2
-texture = ExtResource( 44 )
-normal_map = ExtResource( 45 )
 flip_h = true
-vframes = 5
-hframes = 5
 frame = 14
 
 [node name="AnimationPlayer" parent="Sprite_Player/Garra_Corpo" index="0"]
-anims/Garra_GrabOnEdge_Corpo = SubResource( 14 )
-anims/Garra_HookDown_Corpo = SubResource( 15 )
-anims/Garra_HookFront_Corpo = SubResource( 16 )
-anims/Garra_HookUpFront_Corpo = SubResource( 17 )
-anims/Garra_Melee_Corpo = SubResource( 18 )
+anims/Garra_GrabOnEdge_Corpo = SubResource( 15 )
+anims/Garra_HookDown_Corpo = SubResource( 16 )
+anims/Garra_HookFront_Corpo = SubResource( 17 )
+anims/Garra_HookUpFront_Corpo = SubResource( 18 )
+anims/Garra_Melee_Corpo = SubResource( 19 )
 
 [node name="Garra_BracoAtack" type="Sprite" parent="Sprite_Player"]
 visible = false
@@ -1278,19 +1276,19 @@ hframes = 7
 frame = 39
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite_Player/Garra_BracoAtack"]
-anims/Garra_HookDown_Braco = SubResource( 19 )
-anims/Garra_HookFront_Braco = SubResource( 20 )
-anims/Garra_HookUpFront_Braco = SubResource( 21 )
+anims/Garra_HookDown_Braco = SubResource( 20 )
+anims/Garra_HookFront_Braco = SubResource( 21 )
+anims/Garra_HookUpFront_Braco = SubResource( 22 )
 [connection signal="shake" from="." to="Camera2D/Screenshake" method="_start"]
 [connection signal="slow" from="." to="Camera2D/Slowdown" method="_start"]
 [connection signal="jumped" from="StateMachine/Move/Air" to="." method="_on_Air_jumped"]
 [connection signal="land" from="StateMachine/Move/Air" to="Camera2D" method="_on_land"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
 [connection signal="timeout" from="Gadget_A/GadgetTimer_A" to="Gadget_A" method="_on_GadgetTimer_A_timeout"]
-[connection signal="slow" from="Gadget_B" to="Camera2D/Slowdown" method="_start"]
 [connection signal="slow" from="Gadget_B" to="Gun" method="_on_Gadget_B_slow"]
-[connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gadget_B" method="_on_GadgetTimer_B_timeout"]
+[connection signal="slow" from="Gadget_B" to="Camera2D/Slowdown" method="_start"]
 [connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gun" method="_on_GadgetTimer_B_timeout"]
+[connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gadget_B" method="_on_GadgetTimer_B_timeout"]
 [connection signal="step" from="Sprite_Player/Garra_Corpo" to="." method="_on_step"]
 
 [editable path="Gadget_A/GranadeController"]

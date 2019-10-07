@@ -605,26 +605,6 @@ position = Vector2( -156.659, -290.024 )
 [node name="LightsScene10" parent="Lights" instance=ExtResource( 30 )]
 position = Vector2( -811.303, -221.071 )
 
-[node name="Light2D" type="Light2D" parent="Lights"]
-position = Vector2( 759.697, -378.071 )
-scale = Vector2( 6.06562, 5.00833 )
-texture = ExtResource( 24 )
-color = Color( 1, 0.94902, 0.85098, 1 )
-energy = 2.0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Light2D2" type="Light2D" parent="Lights"]
-position = Vector2( 759.697, -378.071 )
-scale = Vector2( 6.06562, 5.00833 )
-texture = ExtResource( 24 )
-color = Color( 1, 0.94902, 0.85098, 1 )
-range_item_cull_mask = 2
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
 autoplay = true
