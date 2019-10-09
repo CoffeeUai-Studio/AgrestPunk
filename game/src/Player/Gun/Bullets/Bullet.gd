@@ -3,9 +3,9 @@ extends KinematicBody2D
 var motion
 var collision_info
 var direction = Vector2()
-export var speed = 1000
-export (int) var damage
-export (float) var lifetime = .5
+export (int) var speed = 1000
+export (int) var damage = 10
+export (float) var lifetime #= .5
 
 
 

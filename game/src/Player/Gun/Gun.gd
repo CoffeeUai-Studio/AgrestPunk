@@ -9,6 +9,7 @@ var can_shoot = true
 onready var templategun: Node2D = $GunTemplate
 onready var shotgun: Node2D = $Shotgun
 onready var active_gun
+onready var _position
 
 #export (int) var gun_shots = 1
 #export (float, 0, 1.5) var gun_spread = 0.2
@@ -18,6 +19,11 @@ func _ready():
 	emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
 	$GunTimer.wait_time = active_gun.gun_cooldown
 	print("Ammo:", active_gun.current_ammo)
+
+
+func _physics_process(delta):
+	look_at(get_global_mouse_position())
+
 
 func _input(event):
 	if event.is_action_pressed("gun"):
@@ -34,7 +40,8 @@ func _input(event):
 					aim_direction = Utils.get_aim_joystick_direction()
 				Settings.KBD_MOUSE, _:
 					aim_direction = (get_global_mouse_position() - global_position).normalized()
-			active_gun._fire(aim_direction)
+			_position = $Muzzle.position
+			active_gun._fire(aim_direction, _position)
 	elif event.is_action_pressed("ui_right"):
 		active_gun.current_ammo = active_gun.max_ammo
 		emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
