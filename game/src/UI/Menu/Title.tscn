@@ -5,68 +5,19 @@
 [ext_resource path="res://src/UI/Menu/Buttons/PlayButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UI/Menu/Buttons/OptionsButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/UI/Menu/Buttons/QuitButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/audio/music/Trilha_Menu (1).wav" type="AudioStream" id=6]
+[ext_resource path="res://src/Shaders/MainTitle_Fog.shader" type="Shader" id=6]
+[ext_resource path="res://assets/audio/music/Trilha_Menu (1).wav" type="AudioStream" id=7]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.252727, 0.998221 )
-colors = PoolColorArray( 0.501974, 0.511719, 0.19989, 1, 0.380859, 0.573502, 0.625, 1 )
+colors = PoolColorArray( 0.0305824, 0.03125, 0.0098877, 1, 0.0510254, 0.0693264, 0.0742188, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 
-[sub_resource type="Shader" id=3]
-code = "shader_type canvas_item;
-
-// Gonkee's fog shader for Godot 3 - full tutorial https://youtu.be/QEaTsz_0o44
-// If you use this shader, I would prefer it if you gave credit to me and my channel
-
-uniform vec3 color = vec3(0.43, 0.36, 0.03);
-uniform int OCTAVES = 4;
-
-float rand(vec2 coord){
-	return fract(sin(dot(coord, vec2(56, 78)) * 1000.0) * 1000.0);
-}
-
-float noise(vec2 coord){
-	vec2 i = floor(coord);
-	vec2 f = fract(coord);
-
-	// 4 corners of a rectangle surrounding our point
-	float a = rand(i);
-	float b = rand(i + vec2(1.0, 0.0));
-	float c = rand(i + vec2(0.0, 1.0));
-	float d = rand(i + vec2(1.0, 1.0));
-
-	vec2 cubic = f * f * (3.0 - 2.0 * f);
-
-	return mix(a, b, cubic.x) + (c - a) * cubic.y * (1.0 - cubic.x) + (d - b) * cubic.x * cubic.y;
-}
-
-float fbm(vec2 coord){
-	float value = 0.0;
-	float scale = 0.5;
-
-	for(int i = 0; i < OCTAVES; i++){
-		value += noise(coord) * scale;
-		coord *= 2.0;
-		scale *= 0.5;
-	}
-	return value;
-}
-
-void fragment() {
-	vec2 coord = UV * 20.0;
-
-	vec2 motion = vec2( fbm(coord + vec2(TIME * -0.5, TIME * 0.5)) );
-
-	float final = fbm(coord + motion);
-
-	COLOR = vec4(color, final * 0.5);
-}"
-
 [sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
-shader_param/color = Vector3( 0.43, 0.36, 0.03 )
+shader = ExtResource( 6 )
+shader_param/colors = Vector3( 0.2, 0.23, 0.22 )
 shader_param/OCTAVES = 4
 
 [sub_resource type="Gradient" id=5]
@@ -100,52 +51,72 @@ expand = true
 stretch_mode = 6
 
 [node name="CenterRow" type="HBoxContainer" parent="Menu"]
-margin_top = 201.0
+margin_top = 186.0
 margin_right = 220.0
-margin_bottom = 281.0
+margin_bottom = 296.0
 size_flags_vertical = 6
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
 margin_right = 220.0
-margin_bottom = 80.0
+margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 custom_constants/separation = 10
 alignment = 1
 
 [node name="PlayButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_right = 220.0
+
+[node name="Label" parent="Menu/CenterRow/Buttons/PlayButton" index="0"]
+text = "PLAY"
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 30.0
 margin_right = 220.0
 margin_bottom = 50.0
 
-[node name="QuitButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
+[node name="CreditsButton" type="Button" parent="Menu/CenterRow/Buttons"]
+editor/display_folded = true
 margin_top = 60.0
 margin_right = 220.0
 margin_bottom = 80.0
+flat = true
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -26.4425, 420.898 )
+[node name="Label" type="Label" parent="Menu/CenterRow/Buttons/CreditsButton"]
+margin_right = 219.0
+margin_bottom = 20.0
+text = "CREDITS"
+align = 1
+valign = 1
+
+[node name="QuitButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
+margin_top = 90.0
+margin_right = 220.0
+margin_bottom = 110.0
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( -23.5925, 437.048 )
 rotation = -1.57079
 scale = Vector2( 0.221741, 682.07 )
 z_index = -5
 texture = SubResource( 2 )
 centered = false
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Fog_effect" type="Sprite" parent="."]
 material = SubResource( 4 )
-position = Vector2( -51.548, 440.042 )
+position = Vector2( -49.6865, 439.728 )
 rotation = -1.57079
-scale = Vector2( 0.239014, 730.753 )
+scale = Vector2( 0.243548, 730.753 )
 z_index = -4
 texture = SubResource( 6 )
 centered = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 autoplay = true
 [connection signal="pressed" from="Menu/CenterRow/Buttons/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
+
+[editable path="Menu/CenterRow/Buttons/PlayButton"]

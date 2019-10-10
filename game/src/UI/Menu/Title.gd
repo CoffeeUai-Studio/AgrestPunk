@@ -21,6 +21,8 @@ func _on_PlayButton_pressed():
 func _on_OptionsButton_pressed():
 	get_tree().change_scene("res://src/UI/Menu/Options.tscn")
 
+func _on_CreditsButton_pressed():
+	get_tree().change_scene("res://src/UI/Menu/Options.tscn")
 
 func _on_QuitButton_pressed():
 	get_tree().quit()

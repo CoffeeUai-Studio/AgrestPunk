@@ -3,7 +3,7 @@ extends Node
 
 onready var transition: ColorRect = $UI/Transition
 
-export(PackedScene) var StartLevel: = preload("res://src/Levels/LevelIntermed.tscn") 
+export(PackedScene) var StartLevel: = preload("res://src/Levels/Level_Cidade.tscn") 
 
 var visited_checkpoints: = {}
 var level: Node2D = null

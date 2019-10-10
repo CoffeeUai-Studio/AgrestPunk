@@ -613,4 +613,4 @@ stream = ExtResource( 31 )
 autoplay = true
 
 [node name="EnemyTemplate" parent="." instance=ExtResource( 32 )]
-position = Vector2( 602.187, 1085.55 )
+position = Vector2( 607.151, 1058.4 )
