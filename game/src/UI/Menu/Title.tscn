@@ -15,15 +15,15 @@ colors = PoolColorArray( 0.0305824, 0.03125, 0.0098877, 1, 0.0510254, 0.0693264,
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 6 )
 shader_param/colors = Vector3( 0.2, 0.23, 0.22 )
 shader_param/OCTAVES = 4
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=4]
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
@@ -104,12 +104,12 @@ texture = SubResource( 2 )
 centered = false
 
 [node name="Fog_effect" type="Sprite" parent="."]
-material = SubResource( 4 )
+material = SubResource( 3 )
 position = Vector2( -49.6865, 439.728 )
 rotation = -1.57079
 scale = Vector2( 0.243548, 730.753 )
 z_index = -4
-texture = SubResource( 6 )
+texture = SubResource( 5 )
 centered = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
