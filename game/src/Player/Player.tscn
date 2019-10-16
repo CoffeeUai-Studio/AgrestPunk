@@ -118,7 +118,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -180,7 +180,7 @@ tracks/4/keys = {
 "values": [ 0, 39 ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -242,7 +242,7 @@ tracks/4/keys = {
 "values": [ 0, 38 ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -317,6 +317,7 @@ position = Vector2( 0, -30 )
 
 [node name="LedgeWallDetector" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
+is_active = true
 
 [node name="Melee" type="CollisionShape2D" parent="LedgeWallDetector"]
 visible = false
@@ -332,6 +333,7 @@ disabled = true
 [node name="Skin" parent="." instance=ExtResource( 6 )]
 
 [node name="StateMachine" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 7 )
 initial_state = NodePath("Move/Idle")
 
@@ -350,6 +352,7 @@ script = ExtResource( 10 )
 
 [node name="Air" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 11 )
+acceleration_x = 5000.0
 
 [node name="JumpDelay" type="Timer" parent="StateMachine/Move/Air"]
 wait_time = 0.1
@@ -395,6 +398,7 @@ script = ExtResource( 18 )
 position = Vector2( 0, -30 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+editor/display_folded = true
 offset = Vector2( 0, -96 )
 current = true
 smoothing_enabled = true
@@ -420,6 +424,7 @@ wait_time = 0.8
 one_shot = true
 
 [node name="Gadget_A" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 0, -30.1883 )
 script = ExtResource( 25 )
 
@@ -429,6 +434,7 @@ script = ExtResource( 25 )
 one_shot = true
 
 [node name="Gadget_B" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 0, -30.1883 )
 script = ExtResource( 27 )
 
@@ -457,7 +463,7 @@ anims/Rest = SubResource( 6 )
 
 [node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 31 )]
 
-[node name="Garra_BracoAtack" type="Sprite" parent="Sprite_Player"]
+[node name="Garra_BracoAttack" type="Sprite" parent="Sprite_Player"]
 visible = false
 texture = ExtResource( 32 )
 normal_map = ExtResource( 33 )
@@ -466,18 +472,18 @@ vframes = 7
 hframes = 7
 frame = 39
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite_Player/Garra_BracoAtack"]
-anims/Garra_HookDown_Braco = SubResource( 24 )
-anims/Garra_HookFront_Braco = SubResource( 25 )
-anims/Garra_HookUpFront_Braco = SubResource( 26 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite_Player/Garra_BracoAttack"]
+anims/Garra_HookDown_Braco = SubResource( 7 )
+anims/Garra_HookFront_Braco = SubResource( 8 )
+anims/Garra_HookUpFront_Braco = SubResource( 9 )
 [connection signal="shake" from="." to="Camera2D/Screenshake" method="_start"]
 [connection signal="slow" from="." to="Camera2D/Slowdown" method="_start"]
 [connection signal="jumped" from="StateMachine/Move/Air" to="." method="_on_Air_jumped"]
 [connection signal="land" from="StateMachine/Move/Air" to="Camera2D" method="_on_land"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
 [connection signal="timeout" from="Gadget_A/GadgetTimer_A" to="Gadget_A" method="_on_GadgetTimer_A_timeout"]
-[connection signal="slow" from="Gadget_B" to="Gun" method="_on_Gadget_B_slow"]
 [connection signal="slow" from="Gadget_B" to="Camera2D/Slowdown" method="_start"]
+[connection signal="slow" from="Gadget_B" to="Gun" method="_on_Gadget_B_slow"]
 [connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gadget_B" method="_on_GadgetTimer_B_timeout"]
 [connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gun" method="_on_GadgetTimer_B_timeout"]
 

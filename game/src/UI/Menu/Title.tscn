@@ -1795,7 +1795,6 @@ stream = ExtResource( 7 )
 autoplay = true
 
 [node name="Garra_Corpo_2" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
 position = Vector2( 460.647, 587.773 )
 texture = ExtResource( 9 )
 frame = 10
@@ -1843,6 +1842,7 @@ editor/display_folded = true
 texture = ExtResource( 13 )
 
 [node name="Garra_Corpo_6" parent="." instance=ExtResource( 8 )]
+editor/display_folded = true
 position = Vector2( 631.74, 584.281 )
 vframes = 6
 hframes = 6
