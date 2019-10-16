@@ -1,5 +1,8 @@
 extends State
 
+onready var rSound
+
+const hook_sfx = ['TIRO_CORDA_SAINDO_01', 'TIRO_CORDA_SAINDO_02', 'TIRO_CORDA_SAINDO_03']
 
 func _on_Cooldown_timeout() -> void:
 	_state_machine.transition_to("Aim")
@@ -11,6 +14,10 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	owner.cooldown.connect("timeout", self, "_on_Cooldown_timeout")
+
+	rSound = RandomizeSound.choose_random_sound(hook_sfx)
+	$FirehookStream.stream = load("res://assets/audio/sfx/player/hook/" + rSound + ".wav")
+	$FirehookStream.play()
 
 	owner.is_aiming = false
 

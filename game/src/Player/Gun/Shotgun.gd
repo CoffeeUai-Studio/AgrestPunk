@@ -1,7 +1,7 @@
 extends Node2D
 #Shotgun
 
-const fire_sfx = ['TIRO_1', 'TIRO_2', 'TIRO_3']
+const fire_sfx = ['SHOTGUN_01', 'SHOTGUN_02', 'SHOTGUN_03']
 const reload_sfx = ['RECARREGAR_ARMA_1', 'RECARREGAR_ARMA_2', 'RECARREGAR_ARMA_3']
 
 export (PackedScene) var bullet #= preload("Bullet.tscn")

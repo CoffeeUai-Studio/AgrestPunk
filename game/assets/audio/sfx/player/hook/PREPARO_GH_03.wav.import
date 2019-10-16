@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PREPARO_GH_03.wav-a046c0de82e790e4742ba31d8af7b232.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/player/hook/PREPARO_GH_03.wav"
+dest_files=[ "res://.import/PREPARO_GH_03.wav-a046c0de82e790e4742ba31d8af7b232.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

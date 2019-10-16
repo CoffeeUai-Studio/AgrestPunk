@@ -7,6 +7,13 @@ signal shake()
 signal slow()
 signal killed()
 
+const jump_sfx = ['PULO_1', 'PULO_2', 'PULO_3']
+const walk_sfx = ['CORRER_1', 'CORRER_2', 'CORRER_3']
+const damage_sfx = ['CORTE_DANO_01', 'CORTE_DANO_02', 'CORTE_DANO_03']
+const slash_sfx = ['CORTE_01', 'CORTE_02', 'CORTE_03']
+
+onready var rSound
+
 onready var state_machine: StateMachine = $StateMachine
 
 onready var hook: Position2D = $Hook
@@ -65,7 +72,8 @@ func take_damage(amount):
 		emit_signal("slow", .2, .9)
 		effect_animation.play("Damage")
 		effect_animation.queue("InvulnerabilityFlash")
-		$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/DANO_1.wav")
+		rSound = RandomizeSound.choose_random_sound(damage_sfx)
+		$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/" + rSound + ".wav")
 		$PlayerStream.play()
 
 func dies():
@@ -89,8 +97,9 @@ func _input(event):
 		emit_signal("shake")
 	elif event.is_action_pressed("melee"):
 		effect_animation.play("MeleeTemp")
-		#$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/PEIXEIRA_1.wav")
-		#$PlayerStream.play()
+		rSound = RandomizeSound.choose_random_sound(slash_sfx)
+		$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/" + rSound + ".wav")
+		$PlayerStream.play()
 		cabeca_sprite.play("Garra_Melee_Cabeca")
 		braco_sprite.play("Garra_Melee_Braco")
 		torso_sprite.play("Garra_Melee_Corpo")
@@ -100,7 +109,8 @@ func _on_InvulnerabilityTimer_timeout():
 
 
 func _on_Air_jumped():
-	$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/PULO_1.wav")
+	rSound = RandomizeSound.choose_random_sound(jump_sfx)
+	$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/" + rSound + ".wav")
 	$PlayerStream.play()
 	cabeca_sprite.play("Garra_Jump_Cabeca")
 	braco_sprite.play("Garra_Jump_Braco")
@@ -108,5 +118,6 @@ func _on_Air_jumped():
 
 
 func _on_step():
-	$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/CORRER_1.wav")
+	rSound = RandomizeSound.choose_random_sound(walk_sfx)
+	$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/" + rSound + ".wav")
 	$PlayerStream.play()

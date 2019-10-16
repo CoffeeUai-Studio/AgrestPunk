@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CORTE_01.wav-207d5e677794c5b2dd0fc46b1f7f0b5b.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/player/movement/CORTE_01.wav"
+dest_files=[ "res://.import/CORTE_01.wav-207d5e677794c5b2dd0fc46b1f7f0b5b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

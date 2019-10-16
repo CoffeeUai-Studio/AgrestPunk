@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GH_ERRANDO_01.wav-b3ff165eb7ed659c6932ba69a4d3141c.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/player/hook/GH_ERRANDO_01.wav"
+dest_files=[ "res://.import/GH_ERRANDO_01.wav-b3ff165eb7ed659c6932ba69a4d3141c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -6,7 +6,8 @@ Throws a raycast that can interact with Hookable bodies and calculate a pull vec
 The raycast is updated manually for greater precision with where the player is aiming
 Draws the hook's range in the editor
 """
-
+const pull_sfx = ['GH_ERRANDO_01', 'GH_ERRANDO_02', 'GH_ERRANDO_03']
+const chain_sfx = ['PISTOL_01', 'PISTOL_02', 'PISTOL_03']
 
 signal hooked_onto_target(target_global_position)
 
@@ -14,6 +15,8 @@ onready var ray_cast: RayCast2D = $RayCast2D
 onready var arrow: Node2D = $Arrow
 onready var snap_detector: Area2D = $SnapDetector
 onready var cooldown: Timer = $Cooldown
+
+onready var rSound
 
 var is_aiming: = false setget set_is_aiming
 var is_active: = true setget set_is_active
@@ -55,5 +58,6 @@ func set_is_active(value: bool) -> void:
 func _on_Hook_hooked_onto_target(target_global_position):
 	$HookStream.stream = load("res://assets/audio/sfx/player/hook/GARRA_PRENDENDO_METAL_1.wav")
 	$HookStream.play()
-	$ChainStream.stream = load("res://assets/audio/sfx/player/hook/HOOK_PUXANDO_1.wav")
+	rSound = RandomizeSound.choose_random_sound(pull_sfx)
+	$ChainStream.stream = load("res://assets/audio/sfx/player/hook/" + rSound + ".wav")
 	$ChainStream.play()

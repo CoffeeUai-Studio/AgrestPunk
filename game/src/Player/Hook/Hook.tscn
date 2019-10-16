@@ -40,6 +40,8 @@ script = ExtResource( 6 )
 [node name="Fire" type="Node" parent="StateMachine/Aim"]
 script = ExtResource( 7 )
 
+[node name="FirehookStream" type="AudioStreamPlayer" parent="StateMachine/Aim/Fire"]
+
 [node name="HookStream" type="AudioStreamPlayer" parent="."]
 
 [node name="ChainStream" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CORTE_DANO_02.wav-8f68fe6f0fab35a08e397a29058ce4ba.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/player/movement/CORTE_DANO_02.wav"
+dest_files=[ "res://.import/CORTE_DANO_02.wav-8f68fe6f0fab35a08e397a29058ce4ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

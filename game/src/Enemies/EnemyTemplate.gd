@@ -5,7 +5,7 @@ signal health_changed(health)
 signal max_health_changed(max_health)
 signal killed()
 
-export (int) var max_health = 5
+export (int) var max_health = 50
 export (int) var speed
 export (int) var detect_radius = 100
 export (int) var percept_radius = 350

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PISTOL_03.wav-f421b287a3f2d775e1622d4c555f5326.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/player/gun/PISTOL_03.wav"
+dest_files=[ "res://.import/PISTOL_03.wav-f421b287a3f2d775e1622d4c555f5326.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
