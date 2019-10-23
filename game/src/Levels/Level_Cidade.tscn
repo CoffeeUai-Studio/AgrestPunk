@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/Objects/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Scenary/Background/Cidade_Background01.png" type="Texture" id=2]
@@ -10,6 +10,199 @@
 [ext_resource path="res://src/Objects/HookTarget.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/audio/music/Trilha HUB Diferente Completa.wav" type="AudioStream" id=9]
 [ext_resource path="res://src/Enemies/EnemyTemplate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/Scenary/VFX/heat.jpg" type="Texture" id=11]
+
+[sub_resource type="VisualShaderNodeVectorOp" id=1]
+output_port_for_preview = 0
+default_input_values = [ 0, Vector3( 0, 0, 0 ), 1, Vector3( -0.5, -0.5, 0 ) ]
+
+[sub_resource type="VisualShaderNodeVectorOp" id=2]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeVectorOp" id=3]
+output_port_for_preview = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id=15]
+output_port_for_preview = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=16]
+uniform_name = "DistortFactor"
+
+[sub_resource type="VisualShaderNodeTexture" id=17]
+source = 1
+
+[sub_resource type="VisualShaderNodeInput" id=18]
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeInput" id=5]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=6]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=7]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeTextureUniform" id=8]
+output_port_for_preview = 0
+uniform_name = "Heat_Text"
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=9]
+uniform_name = "RiseFactor"
+
+[sub_resource type="VisualShaderNodeScalarOp" id=10]
+output_port_for_preview = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id=11]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeScalarOp" id=12]
+output_port_for_preview = 0
+operator = 1
+
+[sub_resource type="VisualShader" id=13]
+code = "shader_type canvas_item;
+uniform float RiseFactor;
+uniform sampler2D Heat_Text;
+uniform float DistortFactor;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Input:18
+	vec3 n_out18p0;
+	n_out18p0 = vec3(SCREEN_UV,0.0);
+
+// Input:2
+	vec3 n_out2p0;
+	n_out2p0 = vec3(UV,0.0);
+
+// VectorDecompose:3
+	float n_out3p0;
+	float n_out3p1;
+	float n_out3p2;
+	n_out3p0 = n_out2p0.x;
+	n_out3p1 = n_out2p0.y;
+	n_out3p2 = n_out2p0.z;
+
+// ScalarUniform:6
+	float n_out6p0;
+	n_out6p0 = RiseFactor;
+
+// Input:8
+	float n_out8p0;
+	n_out8p0 = TIME;
+
+// ScalarOp:7
+	float n_out7p0;
+	n_out7p0 = n_out6p0 * n_out8p0;
+
+// ScalarOp:9
+	float n_out9p0;
+	n_out9p0 = n_out3p1 - n_out7p0;
+
+// VectorCompose:4
+	float n_in4p2 = 0.00000;
+	vec3 n_out4p0;
+	n_out4p0 = vec3( n_out3p0 , n_out9p0 , n_in4p2 );
+
+// TextureUniform:5
+	vec3 n_out5p0;
+	float n_out5p1;
+	{
+		vec4 n_tex_read = texture( Heat_Text , n_out4p0.xy );
+		n_out5p0 = n_tex_read.rgb;
+		n_out5p1 = n_tex_read.a;
+	}
+
+// VectorOp:10
+	vec3 n_in10p1 = vec3(-0.50000,-0.50000,0.00000);
+	vec3 n_out10p0;
+	n_out10p0 = n_out5p0 + n_in10p1;
+
+// VectorOp:12
+	vec3 n_out12p0;
+	n_out12p0 = n_out10p0 * vec3(n_out3p1);
+
+// ScalarUniform:15
+	float n_out15p0;
+	n_out15p0 = DistortFactor;
+
+// VectorOp:14
+	vec3 n_out14p0;
+	n_out14p0 = n_out12p0 * vec3(n_out15p0);
+
+// VectorOp:11
+	vec3 n_out11p0;
+	n_out11p0 = n_out18p0 + n_out14p0;
+
+// Texture:17
+	vec3 n_out17p0;
+	float n_out17p1;
+	{
+		vec4 _tex_read = textureLod( SCREEN_TEXTURE , n_out11p0.xy, 0.0 );
+		n_out17p0 = _tex_read.rgb;
+		n_out17p1 = _tex_read.a;
+	}
+
+// Output:0
+	COLOR.rgb = n_out17p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( 625.6, -194.5 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 2040, 20 )
+nodes/fragment/2/node = SubResource( 5 )
+nodes/fragment/2/position = Vector2( -400, 280 )
+nodes/fragment/3/node = SubResource( 6 )
+nodes/fragment/3/position = Vector2( -180, 300 )
+nodes/fragment/4/node = SubResource( 7 )
+nodes/fragment/4/position = Vector2( 280, 240 )
+nodes/fragment/5/node = SubResource( 8 )
+nodes/fragment/5/position = Vector2( 540, 80 )
+nodes/fragment/6/node = SubResource( 9 )
+nodes/fragment/6/position = Vector2( -420, 420 )
+nodes/fragment/7/node = SubResource( 10 )
+nodes/fragment/7/position = Vector2( -180, 440 )
+nodes/fragment/8/node = SubResource( 11 )
+nodes/fragment/8/position = Vector2( -420, 520 )
+nodes/fragment/9/node = SubResource( 12 )
+nodes/fragment/9/position = Vector2( 80, 420 )
+nodes/fragment/10/node = SubResource( 1 )
+nodes/fragment/10/position = Vector2( 760, 240 )
+nodes/fragment/11/node = SubResource( 2 )
+nodes/fragment/11/position = Vector2( 1500, 0 )
+nodes/fragment/12/node = SubResource( 3 )
+nodes/fragment/12/position = Vector2( 980, 560 )
+nodes/fragment/14/node = SubResource( 15 )
+nodes/fragment/14/position = Vector2( 1220, 360 )
+nodes/fragment/15/node = SubResource( 16 )
+nodes/fragment/15/position = Vector2( 960, 400 )
+nodes/fragment/17/node = SubResource( 17 )
+nodes/fragment/17/position = Vector2( 1780, 0 )
+nodes/fragment/18/node = SubResource( 18 )
+nodes/fragment/18/position = Vector2( 1200, 20 )
+nodes/fragment/connections = PoolIntArray( 6, 0, 7, 0, 8, 0, 7, 1, 2, 0, 3, 0, 7, 0, 9, 1, 3, 1, 9, 0, 3, 0, 4, 0, 9, 0, 4, 1, 4, 0, 5, 0, 5, 0, 10, 0, 3, 1, 12, 1, 10, 0, 12, 0, 15, 0, 14, 1, 14, 0, 11, 1, 12, 0, 14, 0, 11, 0, 17, 0, 17, 0, 0, 0, 18, 0, 11, 0 )
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = SubResource( 13 )
+shader_param/RiseFactor = -0.5
+shader_param/DistortFactor = 0.075
+shader_param/Heat_Text = ExtResource( 11 )
 
 [node name="Level1" type="Node2D"]
 position = Vector2( -49.1869, 17.4534 )
@@ -72,13 +265,14 @@ centered = false
 offset = Vector2( 0, 9 )
 
 [node name="Lights" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 1098.49, 920.618 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="LightsScene" parent="Lights" instance=ExtResource( 6 )]
-position = Vector2( 441.571, -369.118 )
+position = Vector2( 237.61, -381.442 )
 
 [node name="Light-Cenario-Tras" parent="Lights/LightsScene" index="0"]
 energy = 7.27
@@ -87,6 +281,7 @@ energy = 7.27
 energy = 2.22
 
 [node name="Tilemaps" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 49.1869, -17.4534 )
 
 [node name="Cidade-Frente_TM" type="TileMap" parent="Tilemaps"]
@@ -138,6 +333,7 @@ format = 1
 tile_data = PoolIntArray( -327648, 22, 0, -327647, 22, 0, -327646, 22, 0, -327645, 22, 0, -327644, 22, 0, -327643, 22, 0, -262131, 22, 0, -262130, 22, 0, -262129, 22, 0, -262112, 22, 0, -262111, 22, 0, -262110, 22, 0, -262109, 22, 0, -262108, 22, 0, -262107, 22, 0, -196595, 22, 0, -196594, 22, 0, -196593, 22, 0, -196592, 22, 0, -196576, 22, 0, -196575, 22, 0, -196574, 22, 0, -196573, 22, 0, -196572, 22, 0, -196571, 22, 0, -131059, 22, 0, -131058, 22, 0, -131057, 22, 0, -131056, 22, 0, -131040, 22, 0, -131039, 22, 0, -131038, 22, 0, -131037, 22, 0, -131036, 22, 0, -131035, 22, 0, 196622, 22, 0, 196623, 22, 0, 196624, 22, 0, 196625, 22, 0, 196626, 22, 0, 196647, 22, 0, 196648, 22, 0, 196650, 22, 0, 196651, 22, 0, 196652, 22, 0, 196653, 22, 0, 196654, 22, 0, 262158, 22, 0, 262159, 22, 0, 262160, 22, 0, 262161, 22, 0, 262162, 22, 0, 262183, 22, 0, 262184, 22, 0, 262186, 22, 0, 262187, 22, 0, 262188, 22, 0, 262189, 22, 0, 262190, 22, 0, 327694, 22, 0, 327695, 22, 0, 327696, 22, 0, 327697, 22, 0, 327698, 22, 0, 327720, 22, 0, 327722, 22, 0, 327723, 22, 0, 327724, 22, 0, 327725, 22, 0, 327726, 22, 0, 393256, 22, 0, 393258, 22, 0, 393259, 22, 0, 393260, 22, 0, 393261, 22, 0, 393262, 22, 0, 524302, 22, 0, 524303, 22, 0, 524304, 22, 0, 589838, 22, 0, 589839, 22, 0, 589840, 22, 0, 589841, 22, 0, 589842, 22, 0, 589843, 22, 0, 589858, 22, 0, 589859, 22, 0, 589860, 22, 0, 589861, 22, 0, 589862, 22, 0, 589863, 22, 0, 589864, 22, 0, 589865, 22, 0, 655374, 22, 0, 655375, 22, 0, 655376, 22, 0, 655377, 22, 0, 655378, 22, 0, 655379, 22, 0, 655394, 22, 0, 655395, 22, 0, 655396, 22, 0, 655397, 22, 0, 655398, 22, 0, 655399, 22, 0, 655400, 22, 0, 655401, 22, 0, 720910, 22, 0, 720911, 22, 0, 720912, 22, 0, 720934, 22, 0, 720935, 22, 0, 720936, 22, 0, 720937, 22, 0, 786446, 22, 0, 786447, 22, 0, 786448, 22, 0, 786454, 22, 0, 786455, 22, 0, 786456, 22, 0, 786457, 22, 0, 786470, 22, 0, 786471, 22, 0, 786472, 22, 0, 786473, 22, 0, 851982, 22, 0, 851983, 22, 0, 851984, 22, 0, 851990, 22, 0, 851991, 22, 0, 851992, 22, 0, 851993, 22, 0, 852006, 22, 0, 852007, 22, 0, 852008, 22, 0, 852009, 22, 0, 917518, 22, 0, 917519, 22, 0, 917520, 22, 0, 917526, 22, 0, 917527, 22, 0, 917528, 22, 0, 917529, 22, 0, 917542, 22, 0, 917543, 22, 0, 917544, 22, 0, 917545, 22, 0, 1114134, 22, 0, 1114136, 22, 0, 1179668, 22, 0, 1179669, 22, 0, 1179670, 22, 0, 1179671, 22, 0, 1179672, 22, 0, 1245203, 22, 0, 1245204, 22, 0, 1245205, 22, 0, 1245206, 22, 0, 1245207, 22, 0, 1245208, 22, 0, 1310738, 22, 0, 1310739, 22, 0, 1310740, 22, 0, 1310741, 22, 0, 1310742, 22, 0, 1310743, 22, 0, 1310744, 22, 0, 1376274, 22, 0, 1376275, 22, 0, 1376276, 22, 0, 1376277, 22, 0, 1376278, 22, 0, 1376279, 22, 0, 1376280, 22, 0, 1441810, 22, 0, 1441811, 22, 0, 1441812, 22, 0, 1441813, 22, 0, 1441814, 22, 0, 1441815, 22, 0, 1441816, 22, 0, 1441822, 22, 0, 1441823, 22, 0, 1441824, 22, 0, 1441825, 22, 0, 1507346, 22, 0, 1507347, 22, 0, 1507348, 22, 0, 1507349, 22, 0, 1507350, 22, 0, 1507351, 22, 0, 1507352, 22, 0, 1507358, 22, 0, 1507359, 22, 0, 1507360, 22, 0, 1507361, 22, 0, 1572882, 22, 0, 1572883, 22, 0, 1572884, 22, 0, 1572885, 22, 0, 1572886, 22, 0, 1572887, 22, 0, 1572888, 22, 0, 1572894, 22, 0, 1572895, 22, 0, 1572896, 22, 0, 1572897, 22, 0 )
 
 [node name="Parallax-City" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 scroll_base_scale = Vector2( 0.8, 0.8 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax-City"]
@@ -235,5 +431,12 @@ color = Color( 0.113725, 0.113725, 0.113725, 0.305882 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 14 )
+margin_left = 1589.18
+margin_top = 556.578
+margin_right = 1948.18
+margin_bottom = 704.578
 
 [editable path="Lights/LightsScene"]
