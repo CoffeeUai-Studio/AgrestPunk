@@ -47,6 +47,12 @@ const FLOOR_NORMAL: = Vector2.UP
 var is_active: = true setget set_is_active
 var has_teleported: = false
 
+var inventory = []
+
+var canMove = true
+var canInteract = false
+
+var target = null
 
 func _ready() -> void:
 	#stats.connect("health_depleted", state_machine, "transition_to", ['Die'])
@@ -89,6 +95,17 @@ func set_is_active(value: bool) -> void:
 	hitbox.monitoring = value
 
 func _input(event):
+	if(canInteract and event.is_action_pressed("interact")):
+		print("Interacting with " + target.get_name())
+		
+		get_node("../../DialogueParser").init_dialogue(target.get_name())
+		canMove = false
+		
+		target.action(inventory)
+		
+		if(target.is_in_group("Item") and inventory.find(target.get_name()) < 0):
+			inventory.append(target.get_name())
+			print(inventory)
 	if event.is_action_pressed("ui_down"):
 		take_damage(10)
 	elif event.is_action_pressed("ui_up"):
@@ -121,3 +138,15 @@ func _on_step():
 	rSound = RandomizeSound.choose_random_sound(walk_sfx)
 	$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/" + rSound + ".wav")
 	$PlayerStream.play()
+
+
+#check which NPC is interactable
+func _on_Area2D_body_enter(body, obj):
+	if(body.get_parent().get_name() == "Player"):
+		canInteract = true
+		target = obj
+	
+func _on_Area2D_body_exit(body, obj):
+	if(body.get_parent().get_name() == "Player"):
+		canInteract = false
+		target = null
