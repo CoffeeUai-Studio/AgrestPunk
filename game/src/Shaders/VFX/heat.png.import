@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/godot.png-58f2b932918eef272f5eb399e5f0fc68.stex"
+path="res://.import/heat.png-fe627d40ab2c4a8f0734e82008d42bdb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Scenary/VFX/godot.png"
-dest_files=[ "res://.import/godot.png-58f2b932918eef272f5eb399e5f0fc68.stex" ]
+source_file="res://src/Shaders/VFX/heat.png"
+dest_files=[ "res://.import/heat.png-fe627d40ab2c4a8f0734e82008d42bdb.stex" ]
 
 [params]
 
