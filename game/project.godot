@@ -199,7 +199,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "color_grading_lut", "inkgd" )
+enabled=PoolStringArray( "color_grading_lut" )
 
 [importer_defaults]
 

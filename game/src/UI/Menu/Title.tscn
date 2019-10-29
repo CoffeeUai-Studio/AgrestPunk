@@ -33,6 +33,7 @@ margin_top = -1.18092
 margin_right = 0.970581
 margin_bottom = -1.18094
 script = ExtResource( 1 )
+text_dialogue = "res://src/Player/Dialogue/Data/test_conversation.json"
 
 [node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 174.0
