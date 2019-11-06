@@ -39,6 +39,8 @@ onready var braco_sprite = get_node("Sprite_Player/Garra_Braco/AnimationPlayer")
 onready var torso_sprite = get_node("Sprite_Player/Garra_Corpo/AnimationPlayer")
 onready var effect_animation = get_node("Sprite_Player/EffectAnimation")
 
+onready var move_param = get_node("StateMachine/Move")
+
 export (int) var max_health = 100
 onready var health = max_health setget set_health
 
@@ -58,6 +60,12 @@ func _ready() -> void:
 	#stats.connect("health_depleted", state_machine, "transition_to", ['Die'])
 	emit_signal('max_health_changed', max_health)
 	emit_signal('health_changed', health)
+
+func _physics_process(delta):
+	#if move_param.max_speed.x > move_param.max_speed_default.x:
+		
+	var rot = get_angle_to(get_global_mouse_position())
+	print(rot)
 
 func set_health(value):
 	var prev_health = health

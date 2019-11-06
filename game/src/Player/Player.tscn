@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Hook/Hook.tscn" type="PackedScene" id=2]
@@ -18,34 +18,38 @@
 [ext_resource path="res://src/Player/States/Stagger.gd" type="Script" id=16]
 [ext_resource path="res://src/Player/States/Spawn.gd" type="Script" id=17]
 [ext_resource path="res://src/Player/States/Die.gd" type="Script" id=18]
-[ext_resource path="res://src/Combat/Stats.tscn" type="PackedScene" id=19]
-[ext_resource path="res://src/Combat/HitBox/HitBox.tscn" type="PackedScene" id=20]
-[ext_resource path="res://src/Player/Camera/PlayerCamera.gd" type="Script" id=21]
-[ext_resource path="res://src/Gamefeel/Screenshake.tscn" type="PackedScene" id=22]
-[ext_resource path="res://src/Gamefeel/Slowdown.tscn" type="PackedScene" id=23]
-[ext_resource path="res://src/Player/Gun/Gun.tscn" type="PackedScene" id=24]
-[ext_resource path="res://src/Player/Gadgets/Gadget_A.gd" type="Script" id=25]
-[ext_resource path="res://src/Player/Gadgets/Bombs/GranadeController.tscn" type="PackedScene" id=26]
-[ext_resource path="res://src/Player/Gadgets/Gadget_B.gd" type="Script" id=27]
-[ext_resource path="res://src/Player/Sprite_Player.gd" type="Script" id=28]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Braco.tscn" type="PackedScene" id=29]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_Braco.png" type="Texture" id=30]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_BracoNormalMap.png" type="Texture" id=31]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Cabeca.tscn" type="PackedScene" id=32]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=33]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookFront_Corpo.png" type="Texture" id=34]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookFront_CorpoNormalMap.png" type="Texture" id=35]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookUpFront_Braco.png" type="Texture" id=36]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookUpFront_BracoNormalMap.png" type="Texture" id=37]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookDown_Braco.png" type="Texture" id=38]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookDown_BracoNormalMap.png" type="Texture" id=39]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookFront_Braco.png" type="Texture" id=40]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookFront_BracoNormalMap.png" type="Texture" id=41]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownbraco.png" type="Texture" id=42]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_BracoNormalMap.png" type="Texture" id=43]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownfrontbraco.png" type="Texture" id=44]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontbraco.png" type="Texture" id=45]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupbraco.png" type="Texture" id=46]
+[ext_resource path="res://src/Player/States/Ranged.gd" type="Script" id=19]
+[ext_resource path="res://src/Player/States/Melee.gd" type="Script" id=20]
+[ext_resource path="res://src/Combat/Stats.tscn" type="PackedScene" id=21]
+[ext_resource path="res://src/Combat/HitBox/HitBox.tscn" type="PackedScene" id=22]
+[ext_resource path="res://src/Player/Camera/PlayerCamera.gd" type="Script" id=23]
+[ext_resource path="res://src/Gamefeel/Screenshake.tscn" type="PackedScene" id=24]
+[ext_resource path="res://src/Gamefeel/Slowdown.tscn" type="PackedScene" id=25]
+[ext_resource path="res://src/Player/Gun/Gun.tscn" type="PackedScene" id=26]
+[ext_resource path="res://src/Player/Gadgets/Gadget_A.gd" type="Script" id=27]
+[ext_resource path="res://src/Player/Gadgets/Bombs/GranadeController.tscn" type="PackedScene" id=28]
+[ext_resource path="res://src/Player/Gadgets/Gadget_B.gd" type="Script" id=29]
+[ext_resource path="res://src/Player/Sprite_Player.gd" type="Script" id=30]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Braco.tscn" type="PackedScene" id=31]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_Braco.png" type="Texture" id=32]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_BracoNormalMap.png" type="Texture" id=33]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Cabeca.tscn" type="PackedScene" id=34]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_Cabeca.png" type="Texture" id=35]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_CabecaNormalMap.png" type="Texture" id=36]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=37]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookFront_Corpo.png" type="Texture" id=38]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookFront_CorpoNormalMap.png" type="Texture" id=39]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookUpFront_Braco.png" type="Texture" id=40]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookUpFront_BracoNormalMap.png" type="Texture" id=41]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookDown_Braco.png" type="Texture" id=42]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookDown_BracoNormalMap.png" type="Texture" id=43]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookFront_Braco.png" type="Texture" id=44]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookFront_BracoNormalMap.png" type="Texture" id=45]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownbraco.png" type="Texture" id=46]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_BracoNormalMap.png" type="Texture" id=47]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownfrontbraco.png" type="Texture" id=48]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontbraco.png" type="Texture" id=49]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupbraco.png" type="Texture" id=50]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, -30, 15, -25, 15, 30, -15, 30, -15, -25 )
@@ -138,7 +142,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 38 ) ]
+"values": [ ExtResource( 42 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:normal_map")
@@ -150,7 +154,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 39 ) ]
+"values": [ ExtResource( 43 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:vframes")
@@ -200,7 +204,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 40 ) ]
+"values": [ ExtResource( 44 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:normal_map")
@@ -212,7 +216,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 41 ) ]
+"values": [ ExtResource( 45 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:vframes")
@@ -262,7 +266,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 36 ) ]
+"values": [ ExtResource( 40 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:normal_map")
@@ -274,7 +278,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 37 ) ]
+"values": [ ExtResource( 41 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:vframes")
@@ -340,7 +344,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 42 ) ]
+"values": [ ExtResource( 46 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -352,7 +356,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ ExtResource( 47 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:hframes")
@@ -406,7 +410,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 44 ) ]
+"values": [ ExtResource( 48 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -418,7 +422,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ ExtResource( 47 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:hframes")
@@ -472,7 +476,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 45 ) ]
+"values": [ ExtResource( 49 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -484,7 +488,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ ExtResource( 47 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:hframes")
@@ -538,7 +542,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 3.13834 ),
 "update": 1,
-"values": [ ExtResource( 46 ) ]
+"values": [ ExtResource( 50 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -550,7 +554,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ ExtResource( 47 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:hframes")
@@ -604,7 +608,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 42 ) ]
+"values": [ ExtResource( 46 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -616,7 +620,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ ExtResource( 47 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:hframes")
@@ -656,7 +660,6 @@ position = Vector2( 0, -30 )
 
 [node name="LedgeWallDetector" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
-is_active = true
 
 [node name="Melee" type="CollisionShape2D" parent="LedgeWallDetector"]
 visible = false
@@ -672,7 +675,6 @@ disabled = true
 [node name="Skin" parent="." instance=ExtResource( 6 )]
 
 [node name="StateMachine" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 7 )
 initial_state = NodePath("Move/Idle")
 
@@ -680,6 +682,7 @@ initial_state = NodePath("Move/Idle")
 script = ExtResource( 8 )
 
 [node name="Idle" type="Node" parent="StateMachine/Move"]
+editor/display_folded = true
 script = ExtResource( 9 )
 
 [node name="JumpDelay" type="Timer" parent="StateMachine/Move/Idle"]
@@ -690,8 +693,8 @@ one_shot = true
 script = ExtResource( 10 )
 
 [node name="Air" type="Node" parent="StateMachine/Move"]
+editor/display_folded = true
 script = ExtResource( 11 )
-acceleration_x = 5000.0
 
 [node name="JumpDelay" type="Timer" parent="StateMachine/Move/Air"]
 wait_time = 0.1
@@ -719,7 +722,6 @@ arrive_push = 900.0
 script = ExtResource( 15 )
 
 [node name="Stagger" type="Node" parent="StateMachine"]
-editor/display_folded = true
 script = ExtResource( 16 )
 
 [node name="Duration" type="Timer" parent="StateMachine/Stagger"]
@@ -731,9 +733,15 @@ script = ExtResource( 17 )
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource( 18 )
 
-[node name="Stats" parent="." instance=ExtResource( 19 )]
+[node name="Ranged" type="Node" parent="StateMachine"]
+script = ExtResource( 19 )
 
-[node name="HitBox" parent="." instance=ExtResource( 20 )]
+[node name="Melee" type="Node" parent="StateMachine"]
+script = ExtResource( 20 )
+
+[node name="Stats" parent="." instance=ExtResource( 21 )]
+
+[node name="HitBox" parent="." instance=ExtResource( 22 )]
 position = Vector2( 0, -30 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -747,15 +755,15 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
-script = ExtResource( 21 )
+script = ExtResource( 23 )
 
 [node name="ShiftTween" type="Tween" parent="Camera2D"]
 
-[node name="Screenshake" parent="Camera2D" instance=ExtResource( 22 )]
+[node name="Screenshake" parent="Camera2D" instance=ExtResource( 24 )]
 
-[node name="Slowdown" parent="Camera2D" instance=ExtResource( 23 )]
+[node name="Slowdown" parent="Camera2D" instance=ExtResource( 25 )]
 
-[node name="Gun" parent="." instance=ExtResource( 24 )]
+[node name="Gun" parent="." instance=ExtResource( 26 )]
 position = Vector2( 0, -30 )
 
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
@@ -765,9 +773,9 @@ one_shot = true
 [node name="Gadget_A" type="Node2D" parent="."]
 editor/display_folded = true
 position = Vector2( 0, -30.1883 )
-script = ExtResource( 25 )
+script = ExtResource( 27 )
 
-[node name="GranadeController" parent="Gadget_A" instance=ExtResource( 26 )]
+[node name="GranadeController" parent="Gadget_A" instance=ExtResource( 28 )]
 
 [node name="GadgetTimer_A" type="Timer" parent="Gadget_A"]
 one_shot = true
@@ -775,7 +783,7 @@ one_shot = true
 [node name="Gadget_B" type="Node2D" parent="."]
 editor/display_folded = true
 position = Vector2( 0, -30.1883 )
-script = ExtResource( 27 )
+script = ExtResource( 29 )
 
 [node name="GadgetTimer_B" type="Timer" parent="Gadget_B"]
 one_shot = true
@@ -785,7 +793,7 @@ one_shot = true
 [node name="Sprite_Player" type="Node2D" parent="."]
 position = Vector2( -0.0949593, -44.6353 )
 scale = Vector2( 0.9, 0.9 )
-script = ExtResource( 28 )
+script = ExtResource( 30 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -796,22 +804,25 @@ anims/InvulnerabilityFlash = SubResource( 4 )
 anims/MeleeTemp = SubResource( 5 )
 anims/Rest = SubResource( 6 )
 
-[node name="Garra_Braco" parent="Sprite_Player" instance=ExtResource( 29 )]
-texture = ExtResource( 30 )
-normal_map = ExtResource( 31 )
+[node name="Garra_Braco" parent="Sprite_Player" instance=ExtResource( 31 )]
+texture = ExtResource( 32 )
+normal_map = ExtResource( 33 )
 
-[node name="Garra_Cabeca" parent="Sprite_Player" instance=ExtResource( 32 )]
+[node name="Garra_Cabeca" parent="Sprite_Player" instance=ExtResource( 34 )]
+texture = ExtResource( 35 )
+normal_map = ExtResource( 36 )
+frame = 14
 
-[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 33 )]
-texture = ExtResource( 34 )
-normal_map = ExtResource( 35 )
+[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 37 )]
+texture = ExtResource( 38 )
+normal_map = ExtResource( 39 )
 vframes = 7
 hframes = 7
 frame = 26
 
 [node name="Garra_BracoAttack" type="Sprite" parent="Sprite_Player"]
-texture = ExtResource( 36 )
-normal_map = ExtResource( 37 )
+texture = ExtResource( 40 )
+normal_map = ExtResource( 41 )
 flip_h = true
 vframes = 7
 hframes = 7
@@ -832,8 +843,8 @@ anims/Garra_Shot_9_Braco = SubResource( 14 )
 [connection signal="land" from="StateMachine/Move/Air" to="Camera2D" method="_on_land"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
 [connection signal="timeout" from="Gadget_A/GadgetTimer_A" to="Gadget_A" method="_on_GadgetTimer_A_timeout"]
-[connection signal="slow" from="Gadget_B" to="Camera2D/Slowdown" method="_start"]
 [connection signal="slow" from="Gadget_B" to="Gun" method="_on_Gadget_B_slow"]
+[connection signal="slow" from="Gadget_B" to="Camera2D/Slowdown" method="_start"]
 [connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gun" method="_on_GadgetTimer_B_timeout"]
 [connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gadget_B" method="_on_GadgetTimer_B_timeout"]
 

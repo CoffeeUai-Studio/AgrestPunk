@@ -97,18 +97,18 @@ margin_right = 220.0
 margin_bottom = 110.0
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( -23.5925, 437.048 )
+position = Vector2( -189.688, 594.938 )
 rotation = -1.57079
-scale = Vector2( 0.221741, 682.07 )
+scale = Vector2( 0.353904, 942.491 )
 z_index = -5
 texture = SubResource( 2 )
 centered = false
 
 [node name="Fog_effect" type="Sprite" parent="."]
 material = SubResource( 3 )
-position = Vector2( -49.6865, 439.728 )
+position = Vector2( -201.429, 607.871 )
 rotation = -1.57079
-scale = Vector2( 0.243548, 730.753 )
+scale = Vector2( 0.3667, 966.567 )
 z_index = -4
 texture = SubResource( 5 )
 centered = false

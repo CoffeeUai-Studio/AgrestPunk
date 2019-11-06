@@ -18,9 +18,6 @@ func unhandled_input(event: InputEvent) -> void:
 
 
 func physics_process(delta: float) -> void:
-	torso_sprite.play("Garra_Idle_Corpo")
-	head_sprite.play("Garra_Idle_Cabeca")
-	arm_sprite.play("Garra_Idle_Braco")
 	if owner.is_on_floor() and _parent.get_move_direction().x != 0.0:
 		_state_machine.transition_to("Move/Run")
 	elif not owner.is_on_floor():
@@ -29,6 +26,9 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	_parent.enter(msg)
+	torso_sprite.play("Garra_Idle_Corpo")
+	head_sprite.play("Garra_Idle_Cabeca")
+	arm_sprite.play("Garra_Idle_Braco")
 	
 	_parent.max_speed = _parent.max_speed_default
 	_parent.velocity = Vector2.ZERO

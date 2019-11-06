@@ -21,6 +21,7 @@ func physics_process(delta: float) -> void:
 			torso_sprite.play("Garra_Walk_Corpo")
 			head_sprite.play("Garra_Walk_Cabeca")
 			arm_sprite.play("Garra_Walk_Braco")
+			_parent.max_speed = _parent.max_speed_default
 	else:
 		_state_machine.transition_to("Move/Air")
 	_parent.physics_process(delta)
