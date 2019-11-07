@@ -21,4 +21,3 @@ func _fire(aim_direction, _position):
 		new_bullet.direction = (aim_direction + Vector2(0, bullet_spread)).normalized()
 		new_bullet.damage = damage
 		add_child(new_bullet)
-	print("Ammo:", current_ammo)

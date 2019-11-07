@@ -15,6 +15,10 @@ func _get_configuration_warning() -> String:
 
 func unhandled_input(event: InputEvent) -> void:
 	_parent.unhandled_input(event)
+	if event.is_action_pressed('melee'):
+		_state_machine.transition_to('Move/MeleeGround')
+	if event.is_action_pressed("gun"):
+		_state_machine.transition_to('Move/RangedGround')
 
 
 func physics_process(delta: float) -> void:

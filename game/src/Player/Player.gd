@@ -36,6 +36,7 @@ onready var pass_through: Area2D = $PassThrough
 
 onready var cabeca_sprite = get_node("Sprite_Player/Garra_Cabeca/AnimationPlayer")
 onready var braco_sprite = get_node("Sprite_Player/Garra_Braco/AnimationPlayer")
+onready var ataque_sprite = get_node("Sprite_Player/Garra_BracoAttack/AnimationPlayer")
 onready var torso_sprite = get_node("Sprite_Player/Garra_Corpo/AnimationPlayer")
 onready var effect_animation = get_node("Sprite_Player/EffectAnimation")
 
@@ -61,22 +62,13 @@ func _ready() -> void:
 	emit_signal('max_health_changed', max_health)
 	emit_signal('health_changed', health)
 
-func _physics_process(delta):
-	#if move_param.max_speed.x > move_param.max_speed_default.x:
-		
-	var rot = get_angle_to(get_global_mouse_position())
-	print(rot)
-
 func set_health(value):
 	var prev_health = health
 	health = clamp(value, 0, max_health)
 	if health != prev_health:
 		emit_signal('health_changed', health)
-		print("HP:", health)
 		if health == 0:
 			dies()
-			print("DEAD")
-	#stats.take_damage(source)
 
 func take_damage(amount):
 	if invulnerability_timer.is_stopped():
@@ -103,6 +95,7 @@ func set_is_active(value: bool) -> void:
 	hitbox.monitoring = value
 
 func _input(event):
+	"""
 	if(canInteract and event.is_action_pressed("interact")):
 		print("Interacting with " + target.get_name())
 		
@@ -114,20 +107,13 @@ func _input(event):
 		if(target.is_in_group("Item") and inventory.find(target.get_name()) < 0):
 			inventory.append(target.get_name())
 			print(inventory)
+	"""
 	if event.is_action_pressed("ui_down"):
 		take_damage(10)
 	elif event.is_action_pressed("ui_up"):
 		set_health(health+30)
 	elif event.is_action_pressed("ui_left"):
 		emit_signal("shake")
-	elif event.is_action_pressed("melee"):
-		effect_animation.play("MeleeTemp")
-		rSound = RandomizeSound.choose_random_sound(slash_sfx)
-		$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/" + rSound + ".wav")
-		$PlayerStream.play()
-		cabeca_sprite.play("Garra_Melee_Cabeca")
-		braco_sprite.play("Garra_Melee_Braco")
-		torso_sprite.play("Garra_Melee_Corpo")
 
 func _on_InvulnerabilityTimer_timeout():
 	effect_animation.play("Rest")
@@ -158,3 +144,13 @@ func _on_Area2D_body_exit(body, obj):
 	if(body.get_parent().get_name() == "Player"):
 		canInteract = false
 		target = null
+
+
+func _on_Melee_attack():
+	rSound = RandomizeSound.choose_random_sound(slash_sfx)
+	$PlayerStream.stream = load("res://assets/audio/sfx/player/movement/" + rSound + ".wav")
+	$PlayerStream.play()
+	#switch animation play to owner.sprite.play to make diferent attacks on the air
+	cabeca_sprite.play("Garra_Melee_Cabeca")
+	braco_sprite.play("Garra_Melee_Braco")
+	torso_sprite.play("Garra_Melee_Corpo")

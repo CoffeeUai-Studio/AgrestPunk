@@ -11,6 +11,10 @@ onready var torso_sprite = get_node("../../../Sprite_Player/Garra_Corpo/Animatio
 
 func unhandled_input(event: InputEvent) -> void:
 	_parent.unhandled_input(event)
+	if event.is_action_pressed('melee'):
+		_state_machine.transition_to('Move/MeleeGround')
+	if event.is_action_pressed("gun"):
+		_state_machine.transition_to('Move/RangedGround')
 
 
 func physics_process(delta: float) -> void:
@@ -24,6 +28,7 @@ func physics_process(delta: float) -> void:
 			_parent.max_speed = _parent.max_speed_default
 	else:
 		_state_machine.transition_to("Move/Air")
+	#_parent.max_speed.x = _parent.max_speed.x.interpolate_with(_parent.max_speed_default.x, 4)
 	_parent.physics_process(delta)
 
 

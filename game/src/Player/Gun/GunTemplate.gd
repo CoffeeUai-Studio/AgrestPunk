@@ -17,4 +17,3 @@ func _fire(aim_direction, _position):
 	new_bullet.direction = aim_direction
 	new_bullet.damage = damage
 	add_child(new_bullet)
-	print("Ammo:", current_ammo)

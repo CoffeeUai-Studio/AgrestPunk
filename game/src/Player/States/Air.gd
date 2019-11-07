@@ -31,6 +31,10 @@ func unhandled_input(event: InputEvent) -> void:
 			emit_signal("jumped")
 	else:
 		_parent.unhandled_input(event)
+	if event.is_action_pressed('melee'):
+		_state_machine.transition_to('Move/MeleeAir')
+	if event.is_action_pressed("gun"):
+		_state_machine.transition_to('Move/RangedAir')
 
 
 func physics_process(delta: float) -> void:
