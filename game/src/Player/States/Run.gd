@@ -7,13 +7,14 @@ with state transitions
 onready var head_sprite = get_node("../../../Sprite_Player/Garra_Cabeca/AnimationPlayer")
 onready var arm_sprite = get_node("../../../Sprite_Player/Garra_Braco/AnimationPlayer")
 onready var torso_sprite = get_node("../../../Sprite_Player/Garra_Corpo/AnimationPlayer")
+onready var gun = get_node("../../../Gun")
 
 
 func unhandled_input(event: InputEvent) -> void:
 	_parent.unhandled_input(event)
 	if event.is_action_pressed('melee'):
 		_state_machine.transition_to('Move/MeleeGround')
-	if event.is_action_pressed("gun"):
+	if event.is_action_pressed("gun") && gun.active_gun.current_ammo != 0 and gun.can_shoot:
 		_state_machine.transition_to('Move/RangedGround')
 
 

@@ -19,6 +19,7 @@ var is_grounded
 
 onready var jump_delay: Timer = $JumpDelay
 onready var controls_freeze: Timer = $ControlsFreeze
+onready var gun = get_node("../../../Gun")
 
 export var acceleration_x: = 5000.0
 
@@ -33,7 +34,7 @@ func unhandled_input(event: InputEvent) -> void:
 		_parent.unhandled_input(event)
 	if event.is_action_pressed('melee'):
 		_state_machine.transition_to('Move/MeleeAir')
-	if event.is_action_pressed("gun"):
+	if event.is_action_pressed("gun") && gun.active_gun.current_ammo != 0 and gun.can_shoot:
 		_state_machine.transition_to('Move/RangedAir')
 
 

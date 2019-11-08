@@ -114,6 +114,9 @@ func _input(event):
 		set_health(health+30)
 	elif event.is_action_pressed("ui_left"):
 		emit_signal("shake")
+	if InputEventMouseButton:
+		$StateMachine/Move/RangedGround.mouse_position = rad2deg((get_global_mouse_position() - $Sprite_Player.global_position).angle())
+		$StateMachine/Move/RangedAir.mouse_position = rad2deg((get_global_mouse_position() - $Sprite_Player.global_position).angle())
 
 func _on_InvulnerabilityTimer_timeout():
 	effect_animation.play("Rest")

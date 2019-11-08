@@ -66,18 +66,20 @@ func _on_GadgetTimer_B_timeout():
 """
 
 func _on_Ranged_attack():
-	if active_gun.current_ammo != 0 and can_shoot:
-		active_gun.current_ammo -= 1
-		$GunTimer.start()
-		can_shoot = false
-		rSound = RandomizeSound.choose_random_sound(active_gun.fire_sfx)
-		$GunStream.stream = load("res://assets/audio/sfx/player/gun/" + rSound  +".wav")
-		$GunStream.play()
-		emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
-		match Settings.controls:
-			Settings.GAMEPAD:
-				aim_direction = Utils.get_aim_joystick_direction()
-			Settings.KBD_MOUSE, _:
-				aim_direction = (get_global_mouse_position() - global_position).normalized()
-		_position = $Muzzle.position
-		active_gun._fire(aim_direction, _position)
+	#if active_gun.current_ammo != 0 and can_shoot:
+	#^ ammo check made in state transition
+	active_gun.current_ammo -= 1
+	$GunTimer.start()
+	can_shoot = false
+	rSound = RandomizeSound.choose_random_sound(active_gun.fire_sfx)
+	$GunStream.stream = load("res://assets/audio/sfx/player/gun/" + rSound  +".wav")
+	$GunStream.play()
+	emit_signal('ammo_changed', active_gun.current_ammo, active_gun.max_ammo)
+	match Settings.controls:
+		Settings.GAMEPAD:
+			aim_direction = Utils.get_aim_joystick_direction()
+		Settings.KBD_MOUSE, _:
+			aim_direction = (get_global_mouse_position() - global_position).normalized()
+	_position = $Muzzle.position
+	emit_signal('shoot', aim_direction)
+	active_gun._fire(aim_direction, _position)
