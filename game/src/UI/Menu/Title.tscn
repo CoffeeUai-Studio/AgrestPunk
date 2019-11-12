@@ -106,7 +106,7 @@ centered = false
 
 [node name="Fog_effect" type="Sprite" parent="."]
 material = SubResource( 3 )
-position = Vector2( -201.429, 607.871 )
+position = Vector2( -184.848, 633.495 )
 rotation = -1.57079
 scale = Vector2( 0.3667, 966.567 )
 z_index = -4
