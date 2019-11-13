@@ -33,19 +33,19 @@
 [ext_resource path="res://src/Player/Gadgets/Gadget_B.gd" type="Script" id=31]
 [ext_resource path="res://src/Player/Sprite_Player.gd" type="Script" id=32]
 [ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Braco.tscn" type="PackedScene" id=33]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Braco_Melee.png" type="Texture" id=34]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Braco_MeleeNormalMap.png" type="Texture" id=35]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_Braco.png" type="Texture" id=34]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_BracoNormalMap.png" type="Texture" id=35]
 [ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Cabeca.tscn" type="PackedScene" id=36]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundowncabeca.png" type="Texture" id=37]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=38]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundowncorpo.png" type="Texture" id=39]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_CorpoNormalMap.png" type="Texture" id=40]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownfrontcorpo.png" type="Texture" id=41]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontcorpo.png" type="Texture" id=42]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupcorpo.png" type="Texture" id=43]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupfrontcorpo.png" type="Texture" id=44]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_BracoAttack.tscn" type="PackedScene" id=45]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupbraco.png" type="Texture" id=46]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_Cabeca.png" type="Texture" id=37]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_CabecaNormalMap.png" type="Texture" id=38]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=39]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundowncorpo.png" type="Texture" id=40]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_CorpoNormalMap.png" type="Texture" id=41]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownfrontcorpo.png" type="Texture" id=42]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontcorpo.png" type="Texture" id=43]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupcorpo.png" type="Texture" id=44]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupfrontcorpo.png" type="Texture" id=45]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_BracoAttack.tscn" type="PackedScene" id=46]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, -30, 15, -25, 15, 30, -15, 30, -15, -25 )
@@ -152,7 +152,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 53.8174 ),
 "update": 1,
-"values": [ ExtResource( 39 ) ]
+"values": [ ExtResource( 40 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -164,7 +164,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 40 ) ]
+"values": [ ExtResource( 41 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -194,6 +194,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id=8]
 resource_name = "Garra_Shot_3_Corpo"
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -204,7 +205,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0, 16 ]
+"values": [ 8, 16 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:texture")
@@ -216,7 +217,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 588.134 ),
 "update": 1,
-"values": [ ExtResource( 41 ) ]
+"values": [ ExtResource( 42 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -228,7 +229,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 40 ) ]
+"values": [ ExtResource( 41 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -280,7 +281,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 50.2134 ),
 "update": 1,
-"values": [ ExtResource( 42 ) ]
+"values": [ ExtResource( 43 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -292,7 +293,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 40 ) ]
+"values": [ ExtResource( 41 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -344,7 +345,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 163.144 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ ExtResource( 44 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -356,7 +357,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 40 ) ]
+"values": [ ExtResource( 41 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -408,7 +409,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 147.033 ),
 "update": 1,
-"values": [ ExtResource( 44 ) ]
+"values": [ ExtResource( 45 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -420,7 +421,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 40 ) ]
+"values": [ ExtResource( 41 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -621,14 +622,17 @@ anims/Rest = SubResource( 6 )
 [node name="Garra_Braco" parent="Sprite_Player" instance=ExtResource( 33 )]
 texture = ExtResource( 34 )
 normal_map = ExtResource( 35 )
-vframes = 7
-hframes = 7
+frame = 7
 
 [node name="Garra_Cabeca" parent="Sprite_Player" instance=ExtResource( 36 )]
 texture = ExtResource( 37 )
+normal_map = ExtResource( 38 )
+vframes = 6
+hframes = 6
+frame = 23
 
-[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 38 )]
-frame = 0
+[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 39 )]
+frame = 23
 
 [node name="AnimationPlayer" parent="Sprite_Player/Garra_Corpo" index="0"]
 anims/Garra_Shot_2_Corpo = SubResource( 7 )
@@ -637,9 +641,7 @@ anims/Garra_Shot_6_Corpo = SubResource( 9 )
 anims/Garra_Shot_8_Corpo = SubResource( 10 )
 anims/Garra_Shot_9_Corpo = SubResource( 11 )
 
-[node name="Garra_BracoAttack" parent="Sprite_Player" instance=ExtResource( 45 )]
-texture = ExtResource( 46 )
-frame = 16
+[node name="Garra_BracoAttack" parent="Sprite_Player" instance=ExtResource( 46 )]
 [connection signal="shake" from="." to="Camera2D/Screenshake" method="_start"]
 [connection signal="slow" from="." to="Camera2D/Slowdown" method="_start"]
 [connection signal="jumped" from="StateMachine/Move/Air" to="." method="_on_Air_jumped"]
@@ -652,8 +654,8 @@ frame = 16
 [connection signal="timeout" from="Gadget_A/GadgetTimer_A" to="Gadget_A" method="_on_GadgetTimer_A_timeout"]
 [connection signal="slow" from="Gadget_B" to="Gun" method="_on_Gadget_B_slow"]
 [connection signal="slow" from="Gadget_B" to="Camera2D/Slowdown" method="_start"]
-[connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gun" method="_on_GadgetTimer_B_timeout"]
 [connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gadget_B" method="_on_GadgetTimer_B_timeout"]
+[connection signal="timeout" from="Gadget_B/GadgetTimer_B" to="Gun" method="_on_GadgetTimer_B_timeout"]
 
 [editable path="Gadget_A/GranadeController"]
 

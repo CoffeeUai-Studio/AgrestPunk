@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=2]
 
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupfrontcabeca.png" type="Texture" id=1]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownfrontcabeca.png" type="Texture" id=1]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_CabecaNormalMap.png" type="Texture" id=2]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_Cabeca.png" type="Texture" id=3]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_CabecaNormalMap.png" type="Texture" id=4]
@@ -14,13 +14,13 @@
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Cabeca_Melee.png" type="Texture" id=12]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Cabeca_MeleeNormalMap.png" type="Texture" id=13]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundowncabeca.png" type="Texture" id=14]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownfrontcabeca.png" type="Texture" id=15]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontcabeca.png" type="Texture" id=16]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupcabeca.png" type="Texture" id=17]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontcabeca.png" type="Texture" id=15]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupcabeca.png" type="Texture" id=16]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupfrontcabeca.png" type="Texture" id=17]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Walk_CabecaNormalMap.png" type="Texture" id=18]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Walk_Cabeca.png" type="Texture" id=19]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=1]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -82,7 +82,7 @@ tracks/4/keys = {
 "values": [ 0, 14 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -144,7 +144,7 @@ tracks/4/keys = {
 "values": [ 0, 39 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -206,7 +206,7 @@ tracks/4/keys = {
 "values": [ 1, 38 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -268,7 +268,7 @@ tracks/4/keys = {
 "values": [ 0, 38 ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=5]
 resource_name = "Garra_Idle_Cabeca"
 loop = true
 tracks/0/type = "value"
@@ -332,7 +332,7 @@ tracks/4/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -394,7 +394,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 11 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
@@ -457,7 +457,7 @@ tracks/4/keys = {
 "values": [ 0, 38 ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=8]
 resource_name = "Garra_Shot_2_Cabeca"
 length = 0.5
 loop = true
@@ -522,8 +522,73 @@ tracks/4/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=9]
 resource_name = "Garra_Shot_3_Cabeca"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 8, 16 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:normal_map")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:hframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Garra_Shot_6_Cabeca"
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -587,8 +652,8 @@ tracks/4/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=40]
-resource_name = "Garra_Shot_6_Cabeca"
+[sub_resource type="Animation" id=11]
+resource_name = "Garra_Shot_8_Cabeca"
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -652,8 +717,8 @@ tracks/4/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=41]
-resource_name = "Garra_Shot_8_Cabeca"
+[sub_resource type="Animation" id=12]
+resource_name = "Garra_Shot_9_Cabeca"
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -717,72 +782,7 @@ tracks/4/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=42]
-resource_name = "Garra_Shot_9_Cabeca"
-length = 0.5
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0, 16 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:normal_map")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 2 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath(".:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 5 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath(".:hframes")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 5 ]
-}
-
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=13]
 length = 0.75
 loop = true
 step = 0.05
@@ -854,20 +854,19 @@ normal_map = ExtResource( 2 )
 flip_h = true
 vframes = 5
 hframes = 5
-frame = 16
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Garra_Idle_Cabeca"
-anims/Garra_GrabOnEdge_Cabeca = SubResource( 9 )
-anims/Garra_HookDown_Cabeca = SubResource( 10 )
-anims/Garra_HookFront_Cabeca = SubResource( 11 )
-anims/Garra_HookUpFront_Cabeca = SubResource( 12 )
-anims/Garra_Idle_Cabeca = SubResource( 35 )
-anims/Garra_Jump_Cabeca = SubResource( 36 )
-anims/Garra_Melee_Cabeca = SubResource( 13 )
-anims/Garra_Shot_2_Cabeca = SubResource( 38 )
-anims/Garra_Shot_3_Cabeca = SubResource( 39 )
-anims/Garra_Shot_6_Cabeca = SubResource( 40 )
-anims/Garra_Shot_8_Cabeca = SubResource( 41 )
-anims/Garra_Shot_9_Cabeca = SubResource( 42 )
-anims/Garra_Walk_Cabeca = SubResource( 37 )
+anims/Garra_GrabOnEdge_Cabeca = SubResource( 1 )
+anims/Garra_HookDown_Cabeca = SubResource( 2 )
+anims/Garra_HookFront_Cabeca = SubResource( 3 )
+anims/Garra_HookUpFront_Cabeca = SubResource( 4 )
+anims/Garra_Idle_Cabeca = SubResource( 5 )
+anims/Garra_Jump_Cabeca = SubResource( 6 )
+anims/Garra_Melee_Cabeca = SubResource( 7 )
+anims/Garra_Shot_2_Cabeca = SubResource( 8 )
+anims/Garra_Shot_3_Cabeca = SubResource( 9 )
+anims/Garra_Shot_6_Cabeca = SubResource( 10 )
+anims/Garra_Shot_8_Cabeca = SubResource( 11 )
+anims/Garra_Shot_9_Cabeca = SubResource( 12 )
+anims/Garra_Walk_Cabeca = SubResource( 13 )
