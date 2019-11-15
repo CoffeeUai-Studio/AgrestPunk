@@ -1,11 +1,11 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/Objects/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Scenary/Background/Cidade_Background01.png" type="Texture" id=2]
 [ext_resource path="res://assets/Scenary/Background/Cidade_Background02.png" type="Texture" id=3]
 [ext_resource path="res://assets/Scenary/Background/Cidade_Background03.png" type="Texture" id=4]
 [ext_resource path="res://assets/Scenary/Background/Cidade_Background04.png" type="Texture" id=5]
-[ext_resource path="res://src/Shaders/VFX/Light.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Shaders_E_Materiais/VFX/Light.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/tilesets/placeholder.tres" type="TileSet" id=7]
 [ext_resource path="res://src/Objects/HookTarget.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/audio/music/Trilha HUB Diferente Completa.wav" type="AudioStream" id=9]
@@ -203,6 +203,28 @@ nodes/fragment/connections = PoolIntArray( 6, 0, 7, 0, 8, 0, 7, 1, 2, 0, 3, 0, 7
 shader = SubResource( 16 )
 shader_param/RiseFactor = -0.5
 shader_param/DistortFactor = 0.075
+
+[sub_resource type="Shader" id=18]
+code = "shader_type canvas_item;
+
+vec4 texturePointSmooth(sampler2D tex, vec2 uv) {
+	vec2 size = vec2(textureSize(tex, 0));
+	vec2 pixel = vec2(1.0) / size;
+	uv -= pixel * vec2(0.5);
+	vec2 uv_pixels = uv * size;
+	vec2 delta_pixel = fract(uv_pixels) - vec2(0.5);
+	vec2 ddxy = fwidth(uv_pixels);
+	vec2 mip = log2(ddxy) - 0.5;
+	return textureLod(tex, uv + (clamp(delta_pixel / ddxy, 0.0, 1.0) - delta_pixel) * pixel, min(mip.x, mip.y));
+}
+
+void fragment() {
+	vec4 Texture = texturePointSmooth(TEXTURE, UV);
+	COLOR = Texture.rgba;
+}"
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = SubResource( 18 )
 
 [node name="Level1" type="Node2D"]
 position = Vector2( -49.1869, 17.4534 )
@@ -437,7 +459,8 @@ margin_right = 1960.79
 margin_bottom = 633.99
 
 [node name="Igreja" type="Sprite" parent="."]
-position = Vector2( 836.506, -528.125 )
+material = SubResource( 19 )
+position = Vector2( 837.28, -530.446 )
 scale = Vector2( 1.48792, 1.50545 )
 texture = ExtResource( 11 )
 normal_map = ExtResource( 12 )
