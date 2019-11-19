@@ -3,7 +3,7 @@
 [ext_resource path="res://src/VFX/Explosion.anim" type="Animation" id=1]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0.642686, 0.788969, 0.918465 )
+offsets = PoolRealArray( 0.510791, 0.681055, 0.846523 )
 colors = PoolColorArray( 0.0313726, 0.0313726, 0.0313726, 0, 0.386719, 0.386719, 0.386719, 0.862745, 0.262745, 0.262745, 0.262745, 0.470588 )
 
 [sub_resource type="GradientTexture" id=2]
@@ -29,7 +29,7 @@ emission_shape = 1
 emission_sphere_radius = 0.01
 flag_disable_z = true
 spread = 180.0
-gravity = Vector3( -14.1702, -47.2342, 0 )
+gravity = Vector3( -16.5441, -55.1469, 0 )
 initial_velocity = 0.1
 initial_velocity_random = 1.0
 angular_velocity = -4.05843e-014
@@ -134,8 +134,9 @@ color_ramp = SubResource( 9 )
 [node name="Explosion_VFX" type="Node2D"]
 
 [node name="Smoke" type="Particles2D" parent="."]
+emitting = false
 amount = 500
-lifetime = 0.8
+one_shot = true
 explosiveness = 0.8
 process_material = SubResource( 7 )
 
