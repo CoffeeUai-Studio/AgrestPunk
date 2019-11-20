@@ -24,4 +24,4 @@ func _on_body_entered(body: PhysicsBody2D) -> void:
 	if body is Player and not body.has_teleported:
 		var NextLevel = load(next_level_file_path)
 		LevelLoader.trigger(NextLevel, next_level_portal_name)
-	body.has_teleported = false
+	#body.has_teleported = false
