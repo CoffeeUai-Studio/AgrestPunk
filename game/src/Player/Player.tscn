@@ -461,6 +461,7 @@ position = Vector2( 0, -30 )
 
 [node name="LedgeWallDetector" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
+is_active = true
 
 [node name="Melee" type="CollisionShape2D" parent="LedgeWallDetector"]
 visible = false
@@ -496,6 +497,7 @@ script = ExtResource( 10 )
 [node name="Air" type="Node" parent="StateMachine/Move"]
 editor/display_folded = true
 script = ExtResource( 11 )
+acceleration_x = 5000.0
 
 [node name="JumpDelay" type="Timer" parent="StateMachine/Move/Air"]
 wait_time = 0.1
@@ -507,6 +509,10 @@ one_shot = true
 
 [node name="Wall" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 12 )
+slide_acceleration = 1600.0
+max_slide_speed = 400.0
+friction_factor = 0.15
+jump_strength = Vector2( 500, 400 )
 
 [node name="MeleeGround" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 13 )
