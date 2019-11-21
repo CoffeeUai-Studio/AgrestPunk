@@ -23,6 +23,7 @@ func _physics_process(delta):
 
 func _on_Bullet_body_entered(body):
 	if body.has_method('take_damage'):
+		print('notboom')
 		body.take_damage(damage)
 	explode()
 

@@ -23,5 +23,5 @@ bullet = ExtResource( 3 )
 nshots = 6
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( 30, 0 )
+position = Vector2( 25, 0 )
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]

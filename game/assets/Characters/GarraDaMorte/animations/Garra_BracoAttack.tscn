@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/Shaders_E_Materiais/PixelArt.material" type="Material" id=1]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupfrontbraco.png" type="Texture" id=2]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownbraco.png" type="Texture" id=2]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_BracoNormalMap.png" type="Texture" id=3]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookDown_Braco.png" type="Texture" id=4]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookDown_BracoNormalMap.png" type="Texture" id=5]
@@ -9,10 +9,10 @@
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookFront_BracoNormalMap.png" type="Texture" id=7]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookUpFront_Braco.png" type="Texture" id=8]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_HookUpFront_BracoNormalMap.png" type="Texture" id=9]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownbraco.png" type="Texture" id=10]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownfrontbraco.png" type="Texture" id=11]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontbraco.png" type="Texture" id=12]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupbraco.png" type="Texture" id=13]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownfrontbraco.png" type="Texture" id=10]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontbraco.png" type="Texture" id=11]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupbraco.png" type="Texture" id=12]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupfrontbraco.png" type="Texture" id=13]
 
 [sub_resource type="Animation" id=1]
 tracks/0/type = "value"
@@ -226,6 +226,107 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:normal_map")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:vframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.35, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -90.0, -90.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -13, -10 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = false
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 13, 10 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Garra_Shot_3_Braco"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 8, 16 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
 "values": [ ExtResource( 10 ) ]
 }
 tracks/2/type = "value"
@@ -259,7 +360,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 5 ]
@@ -271,10 +372,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = false
 tracks/5/keys = {
-"times": PoolRealArray( 0.5, 0.6, 0.85, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.35, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, -90.0, -90.0, 0.0 ]
+"values": [ 0.0, -45.0, -45.0, 0.0 ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath(".:offset")
@@ -286,23 +387,23 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -13, -10 ) ]
+"values": [ Vector2( -15, -6 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath(".:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
-tracks/7/enabled = true
+tracks/7/enabled = false
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 13, 10 ) ]
+"values": [ Vector2( 15, 6 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Garra_Shot_3_Braco"
+[sub_resource type="Animation" id=6]
+resource_name = "Garra_Shot_6_Braco"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -315,7 +416,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 8, 16 ]
+"values": [ 0, 16 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:texture")
@@ -372,25 +473,25 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = false
 tracks/5/keys = {
-"times": PoolRealArray( 0.5, 0.6, 0.85, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0, -45.0, -45.0, 0.0 ]
+"values": [ 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath(".:offset")
+tracks/6/path = NodePath(".:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -15, -6 ) ]
+"values": [ Vector2( 16, 4 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath(".:position")
+tracks/7/path = NodePath(".:offset")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -399,11 +500,11 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 15, 6 ) ]
+"values": [ Vector2( -16, -4 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Garra_Shot_6_Braco"
+[sub_resource type="Animation" id=7]
+resource_name = "Garra_Shot_8_Braco"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -426,7 +527,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 3.13834 ),
 "update": 1,
 "values": [ ExtResource( 12 ) ]
 }
@@ -467,19 +568,19 @@ tracks/4/keys = {
 "values": [ 5 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath(".:offset")
+tracks/5/path = NodePath(".:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.35, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -16, -4 ) ]
+"values": [ 0.0, 90.0, 90.0, 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath(".:position")
+tracks/6/path = NodePath(".:offset")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -488,11 +589,23 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 16, 4 ) ]
+"values": [ Vector2( -1, 5 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = false
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -5 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Garra_Shot_8_Braco"
+[sub_resource type="Animation" id=8]
+resource_name = "Garra_Shot_9_Braco"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -515,7 +628,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 3.13834 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ ExtResource( 13 ) ]
 }
@@ -562,108 +675,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = false
 tracks/5/keys = {
-"times": PoolRealArray( 0.5, 0.6, 0.85, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 90.0, 90.0, 0.0 ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath(".:offset")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -1, 5 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath(".:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, -5 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "Garra_Shot_9_Braco"
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0, 16 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 2 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:normal_map")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 3 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath(".:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 5 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath(".:vframes")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 5 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath(".:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = false
-tracks/5/keys = {
-"times": PoolRealArray( 0.5, 0.6, 0.85, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.35, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 45.0, 45.0, 0.0 ]
@@ -685,7 +697,7 @@ tracks/7/path = NodePath(".:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
-tracks/7/enabled = true
+tracks/7/enabled = false
 tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -695,14 +707,13 @@ tracks/7/keys = {
 
 [node name="Garra_BracoAttack" type="Sprite"]
 material = ExtResource( 1 )
-position = Vector2( 16, 1 )
+position = Vector2( 13, 10 )
 texture = ExtResource( 2 )
 normal_map = ExtResource( 3 )
-offset = Vector2( -16, -1 )
+offset = Vector2( -13, -10 )
 flip_h = true
 vframes = 5
 hframes = 5
-frame = 16
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Garra_HookDown_Braco = SubResource( 1 )
