@@ -33,7 +33,6 @@
 [ext_resource path="res://assets/audio/music/Trilha HUB Diferente Completa.wav" type="AudioStream" id=31]
 [ext_resource path="res://src/Enemies/EnemyTemplate.tscn" type="PackedScene" id=32]
 
-
 [node name="Level1" type="Node2D"]
 position = Vector2( -49.1869, 17.4534 )
 
