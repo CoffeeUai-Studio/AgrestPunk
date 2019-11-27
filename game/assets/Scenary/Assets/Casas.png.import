@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Igreja.png-62093b8dfcbcd18b3e7d41f4521d11d1.stex"
+path="res://.import/Casas.png-8e2210278e3f5bf45e56ccb6bfb3f5e2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Scenary/Buildings/Igreja.png"
-dest_files=[ "res://.import/Igreja.png-62093b8dfcbcd18b3e7d41f4521d11d1.stex" ]
+source_file="res://assets/Scenary/Assets/Casas.png"
+dest_files=[ "res://.import/Casas.png-8e2210278e3f5bf45e56ccb6bfb3f5e2.stex" ]
 
 [params]
 

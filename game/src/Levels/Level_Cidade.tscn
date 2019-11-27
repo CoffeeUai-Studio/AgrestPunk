@@ -10,9 +10,10 @@
 [ext_resource path="res://src/Objects/HookTarget.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/audio/music/Trilha HUB Diferente Completa.wav" type="AudioStream" id=9]
 [ext_resource path="res://src/Enemies/EnemyTemplate.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/Scenary/Buildings/Igreja.png" type="Texture" id=11]
-[ext_resource path="res://assets/Scenary/Buildings/Igreja_n.png" type="Texture" id=12]
+[ext_resource path="res://assets/Scenary/Assets/Igreja.png" type="Texture" id=11]
+[ext_resource path="res://assets/Scenary/Assets/Igreja_n.png" type="Texture" id=12]
 [ext_resource path="res://src/Objects/Portal.tscn" type="PackedScene" id=13]
+
 
 [sub_resource type="VisualShaderNodeVectorOp" id=1]
 output_port_for_preview = 0
