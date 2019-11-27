@@ -1,21 +1,19 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Enemies/EnemyTemplate.gd" type="Script" id=1]
-[ext_resource path="res://src/Player/Gun/Bullets/Enemy_Standard_Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Characters/Toptero/Sprites/Toptero_Sheet.png" type="Texture" id=3]
-[ext_resource path="res://assets/Characters/Toptero/Sprites/Toptero_Sheet_n.png" type="Texture" id=4]
+[ext_resource path="res://assets/Characters/Toptero/Sprites/Toptero_Sheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/Characters/Toptero/Sprites/Toptero_Sheet_n.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=1]
 radius = 18.0
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=2]
 radius = 80.0
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=3]
 radius = 50.0
 
-[sub_resource type="Animation" id=2]
-resource_name = "Damage"
+[sub_resource type="Animation" id=4]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -31,8 +29,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Rest"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:modulate")
 tracks/0/interp = 1
@@ -46,25 +43,24 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=6]
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=7]
 
 [node name="EnemyTemplate" type="KinematicBody2D"]
 collision_layer = 128
 collision_mask = 387
 script = ExtResource( 1 )
-bullet = ExtResource( 2 )
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
-shape = SubResource( 9 )
+shape = SubResource( 1 )
 
 [node name="Sprite_Enemy" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Sprite_Enemy"]
 rotation = -1.5708
-texture = ExtResource( 3 )
-normal_map = ExtResource( 4 )
+texture = ExtResource( 2 )
+normal_map = ExtResource( 3 )
 offset = Vector2( -2, 0 )
 vframes = 3
 hframes = 10
@@ -75,17 +71,17 @@ collision_layer = 0
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite_Enemy/Aiming"]
 position = Vector2( 152.01, 0 )
 rotation = 1.5708
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Sprite_Enemy/Aiming"]
 position = Vector2( 74.21, 0 )
 rotation = 1.5708
-shape = SubResource( 8 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="EffectAnimation" type="AnimationPlayer" parent="Sprite_Enemy"]
-anims/Damage = SubResource( 2 )
-anims/Rest = SubResource( 3 )
+anims/Damage = SubResource( 4 )
+anims/Rest = SubResource( 5 )
 
 [node name="GunTimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -94,21 +90,21 @@ wait_time = 0.2
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 disabled = true
 
 [node name="PerceptibleRadius" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PerceptibleRadius"]
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 disabled = true
 
 [node name="Turret" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Turret"]
 rotation = -1.5708
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 offset = Vector2( -2, 16 )
 vframes = 3
 hframes = 10

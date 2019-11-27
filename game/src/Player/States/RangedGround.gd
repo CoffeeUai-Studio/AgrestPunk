@@ -18,63 +18,63 @@ func enter(msg: Dictionary = {}) -> void:
 	attack.show()
 	if mouse_position <= 22.5 && mouse_position >= -22.5:
 		direct = "6" #front
-		attack.rotation_degrees = mouse_position
-		attack.position.x = 16
-		attack.position.y = 4
+#		attack.rotation_degrees = mouse_position
+#		attack.position.x = 16
+#		attack.position.y = 4
 	
 	elif mouse_position >= 157.5 || mouse_position <= -157.5:
 		direct = "6" #front
-		attack.rotation_degrees = mouse_position - 180
-		attack.position.x = 16
-		attack.position.y = 4
+#		attack.rotation_degrees = mouse_position - 180
+#		attack.position.x = 16
+#		attack.position.y = 4
 	
 	elif mouse_position > 22.5 && mouse_position <= 67.5:
 		direct = "3" #downfront
-		attack.rotation_degrees = mouse_position - 45
-		attack.position.x = 15
-		attack.position.y = 8
+#		attack.rotation_degrees = mouse_position - 45
+#		attack.position.x = 15
+#		attack.position.y = 8
 		
 	elif mouse_position < 157.5 && mouse_position >= 112.5:
 		direct = "3" #downfront
-		attack.rotation_degrees = mouse_position - 180 + 45
-		attack.position.x = 15
-		attack.position.y = 8
+#		attack.rotation_degrees = mouse_position - 180 + 45
+#		attack.position.x = 15
+#		attack.position.y = 8
 		
 	elif mouse_position > 67.5 && mouse_position <= 90 :
 		direct = "2" #down
-		attack.rotation_degrees = mouse_position - 90
-		attack.position.x = 13
-		attack.position.y = 10
+#		attack.rotation_degrees = mouse_position - 90
+#		attack.position.x = 13
+#		attack.position.y = 10
 		
 	elif mouse_position > 90 && mouse_position < 112.5 :
 		direct = "2" #down
-		attack.rotation_degrees = mouse_position - 180 + 90
-		attack.position.x = 13
-		attack.position.y = 10
+#		attack.rotation_degrees = mouse_position - 180 + 90
+#		attack.position.x = 13
+#		attack.position.y = 10
 		
 	elif mouse_position < -22.5 && mouse_position >= -67.5:
 		direct = "9" #upfront
-		attack.rotation_degrees = mouse_position + 45
-		attack.position.x = 16
-		attack.position.y = 1
+#		attack.rotation_degrees = mouse_position + 45
+#		attack.position.x = 16
+#		attack.position.y = 1
 		
 	elif mouse_position > -157.5 && mouse_position <= -112.5:
 		direct = "9" #upfront
-		attack.rotation_degrees = mouse_position - 180 - 45
-		attack.position.x = 16
-		attack.position.y = 1
+#		attack.rotation_degrees = mouse_position - 180 - 45
+#		attack.position.x = 16
+#		attack.position.y = 1
 		
 	elif mouse_position < -67.5 && mouse_position >= -90 :
 		direct = "8" #up
-		attack.rotation_degrees = mouse_position + 90
-		attack.position.x = 1
-		attack.position.y = -5
+#		attack.rotation_degrees = mouse_position + 90
+#		attack.position.x = 1
+#		attack.position.y = -5
 		
 	elif mouse_position < -90 && mouse_position > -112.5 :
 		direct = "8" #up
-		attack.rotation_degrees = mouse_position - 180 - 90
-		attack.position.x = 1
-		attack.position.y = -5
+#		attack.rotation_degrees = mouse_position - 180 - 90
+#		attack.position.x = 1
+#		attack.position.y = -5
 		
 	#attack.rotation_degrees = mouse_position
 	print(attack.position)

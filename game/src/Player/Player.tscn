@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://src/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://src/Player/Hook/Hook.tscn" type="PackedScene" id=2]
@@ -33,20 +33,17 @@
 [ext_resource path="res://src/Player/Gadgets/Gadget_B.gd" type="Script" id=31]
 [ext_resource path="res://src/Player/Sprite_Player.gd" type="Script" id=32]
 [ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Braco.tscn" type="PackedScene" id=33]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_Braco.png" type="Texture" id=34]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_GrabOnEdge_BracoNormalMap.png" type="Texture" id=35]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Cabeca.tscn" type="PackedScene" id=36]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_Cabeca.png" type="Texture" id=37]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Jump_CabecaNormalMap.png" type="Texture" id=38]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=39]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownbraco.png" type="Texture" id=34]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Cabeca.tscn" type="PackedScene" id=35]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundowncabeca.png" type="Texture" id=36]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_Corpo.tscn" type="PackedScene" id=37]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupcorpo.png" type="Texture" id=38]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_CorpoNormalMap.png" type="Texture" id=39]
 [ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundowncorpo.png" type="Texture" id=40]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_Idle_CorpoNormalMap.png" type="Texture" id=41]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownfrontcorpo.png" type="Texture" id=42]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontcorpo.png" type="Texture" id=43]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupcorpo.png" type="Texture" id=44]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupfrontcorpo.png" type="Texture" id=45]
-[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_BracoAttack.tscn" type="PackedScene" id=46]
-[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontbraco.png" type="Texture" id=47]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gundownfrontcorpo.png" type="Texture" id=41]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunfrontcorpo.png" type="Texture" id=42]
+[ext_resource path="res://assets/Characters/GarraDaMorte/sprites/Garra_gunupfrontcorpo.png" type="Texture" id=43]
+[ext_resource path="res://assets/Characters/GarraDaMorte/animations/Garra_BracoAttack.tscn" type="PackedScene" id=44]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, -30, 15, -25, 15, 30, -15, 30, -15, -25 )
@@ -165,7 +162,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 41 ) ]
+"values": [ ExtResource( 39 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -218,7 +215,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 588.134 ),
 "update": 1,
-"values": [ ExtResource( 42 ) ]
+"values": [ ExtResource( 41 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -230,7 +227,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 41 ) ]
+"values": [ ExtResource( 39 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -282,7 +279,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 50.2134 ),
 "update": 1,
-"values": [ ExtResource( 43 ) ]
+"values": [ ExtResource( 42 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -294,7 +291,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 41 ) ]
+"values": [ ExtResource( 39 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -346,7 +343,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 163.144 ),
 "update": 1,
-"values": [ ExtResource( 44 ) ]
+"values": [ ExtResource( 38 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -358,7 +355,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 41 ) ]
+"values": [ ExtResource( 39 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -410,7 +407,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 147.033 ),
 "update": 1,
-"values": [ ExtResource( 45 ) ]
+"values": [ ExtResource( 43 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath(".:normal_map")
@@ -422,7 +419,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 41 ) ]
+"values": [ ExtResource( 39 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:vframes")
@@ -463,6 +460,7 @@ position = Vector2( 0, -30.2572 )
 [node name="LedgeWallDetector" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 0, -0.257187 )
+is_active = true
 
 [node name="Melee" type="CollisionShape2D" parent="LedgeWallDetector"]
 visible = false
@@ -501,6 +499,7 @@ script = ExtResource( 10 )
 [node name="Air" type="Node" parent="StateMachine/Move"]
 editor/display_folded = true
 script = ExtResource( 11 )
+acceleration_x = 5000.0
 
 [node name="JumpDelay" type="Timer" parent="StateMachine/Move/Air"]
 wait_time = 0.1
@@ -512,6 +511,10 @@ one_shot = true
 
 [node name="Wall" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 12 )
+slide_acceleration = 1600.0
+max_slide_speed = 400.0
+friction_factor = 0.15
+jump_strength = Vector2( 500, 400 )
 
 [node name="MeleeGround" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 13 )
@@ -627,18 +630,15 @@ anims/Rest = SubResource( 6 )
 
 [node name="Garra_Braco" parent="Sprite_Player" instance=ExtResource( 33 )]
 texture = ExtResource( 34 )
-normal_map = ExtResource( 35 )
-frame = 7
 
-[node name="Garra_Cabeca" parent="Sprite_Player" instance=ExtResource( 36 )]
-texture = ExtResource( 37 )
-normal_map = ExtResource( 38 )
-vframes = 6
-hframes = 6
-frame = 23
+[node name="Garra_Cabeca" parent="Sprite_Player" instance=ExtResource( 35 )]
+texture = ExtResource( 36 )
 
-[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 39 )]
-frame = 23
+[node name="Garra_Corpo" parent="Sprite_Player" instance=ExtResource( 37 )]
+texture = ExtResource( 38 )
+normal_map = ExtResource( 39 )
+vframes = 5
+hframes = 5
 
 [node name="AnimationPlayer" parent="Sprite_Player/Garra_Corpo" index="0"]
 anims/Garra_Shot_2_Corpo = SubResource( 7 )
@@ -647,10 +647,11 @@ anims/Garra_Shot_6_Corpo = SubResource( 9 )
 anims/Garra_Shot_8_Corpo = SubResource( 10 )
 anims/Garra_Shot_9_Corpo = SubResource( 11 )
 
-[node name="Garra_BracoAttack" parent="Sprite_Player" instance=ExtResource( 46 )]
-position = Vector2( 16, 4 )
-texture = ExtResource( 47 )
-offset = Vector2( -16, -4 )
+[node name="Garra_BracoAttack" parent="Sprite_Player" instance=ExtResource( 44 )]
+position = Vector2( 0, 0 )
+texture = ExtResource( 34 )
+offset = Vector2( 0, 0 )
+frame = 0
 [connection signal="shake" from="." to="Camera2D/Screenshake" method="_start"]
 [connection signal="slow" from="." to="Camera2D/Slowdown" method="_start"]
 [connection signal="jumped" from="StateMachine/Move/Air" to="." method="_on_Air_jumped"]
