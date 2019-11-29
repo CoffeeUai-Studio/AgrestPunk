@@ -77,7 +77,7 @@ func _on_Aiming_body_entered(body):
 		target = body
 		$GunTimer.start()
 
-
+"""
 func _on_GunTimer_timeout():
 	var new_bullet = bullet.instance()
 	new_bullet.position = $Turret/Sprite/Muzzle.global_position
@@ -85,4 +85,4 @@ func _on_GunTimer_timeout():
 	print(turret_current_dir)
 	#new_bullet.damage = damage
 	add_child(new_bullet)
-
+"""

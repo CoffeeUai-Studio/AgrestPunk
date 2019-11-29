@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Trilha_Estação_Entrega_MP3_Loopavel (online-audio-converter.com).ogg-7716cec87fa62189a96b95d9e2be239f.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Trilha_Estação_Entrega_MP3_Loopavel (online-audio-converter.com).ogg"
+dest_files=[ "res://.import/Trilha_Estação_Entrega_MP3_Loopavel (online-audio-converter.com).ogg-7716cec87fa62189a96b95d9e2be239f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
